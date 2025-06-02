@@ -1,0 +1,215 @@
+(footprint "PHA225"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "CP, Axial series, Axial, Horizontal, pin pitch=43mm, , length*diameter=37*16mm^2, Electrolytic Capacitor, , http://www.kemet.com/Lists/ProductCatalog/Attachments/424/KEM_AC102.pdf")
+	(tags "CP Axial series Axial Horizontal pin pitch 43mm  length 37mm diameter 16mm Electrolytic Capacitor")
+	(property "Reference" "REF**"
+		(at 0 -2.54 180)
+		(layer "F.SilkS")
+		(uuid "95fbd2b5-3729-4a4d-8946-b2ea9c9080c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "PHA225"
+		(at 0 25.4 180)
+		(layer "F.Fab")
+		(uuid "bc7753fb-ae18-4f3a-98ec-403a52881cef")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" ""
+		(at 0 43.18 90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "8d49d54c-8888-4e9b-a64c-cc80dbb1cb15")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 43.18 90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "946a3501-5350-49e2-bf00-84e4bcc14d29")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 43.18 90)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "5fbc399f-e14f-4a29-9382-8bc35861cf1d")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr through_hole)
+	(fp_line
+		(start 2.5 42)
+		(end 3.5 42)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "069f9f1d-8a93-4b53-b6af-dec6d68470b9")
+	)
+	(fp_line
+		(start 3 41.5)
+		(end 3 42.5)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "a253b571-d519-402c-9652-45b6b1a28c9a")
+	)
+	(fp_line
+		(start -1 21)
+		(end 1 21)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "71254949-7129-49f9-8b75-07931a3c2b39")
+	)
+	(fp_line
+		(start 0 42)
+		(end 0 0)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "Dwgs.User")
+		(uuid "e23eb38e-5949-41bb-ac5f-6291324f7b8f")
+	)
+	(fp_line
+		(start -8.25 -1)
+		(end -8.25 43)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "1a826062-4994-4f10-8d7e-08c7380fd8e9")
+	)
+	(fp_line
+		(start -8.25 43)
+		(end 8.25 43)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9dfb0837-5475-474d-96b4-f16a0ccc0ac0")
+	)
+	(fp_line
+		(start 8.25 -1)
+		(end -8.25 -1)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "673c9f4e-6568-411d-8f38-0ca0665114a4")
+	)
+	(fp_line
+		(start 8.25 43)
+		(end 8.25 -1)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "5c65f838-4d7c-4c7e-9756-7c7d365ff6ec")
+	)
+	(fp_line
+		(start 0 0.18)
+		(end 0 3.18)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "bfe98f70-5e92-42ca-acef-8b2e9684feb9")
+	)
+	(fp_line
+		(start 0 43.18)
+		(end 0 40.18)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "d019391f-9708-4d0c-96de-41b768aa7495")
+	)
+	(fp_rect
+		(start -8 3)
+		(end 8 39)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(fill none)
+		(layer "F.Fab")
+		(uuid "41bc3913-4485-4e67-aa30-d515c30564fc")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 24 180)
+		(layer "F.Fab")
+		(uuid "c9e3fa6d-9f39-4210-8d5e-62a8c5f858bf")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(pad "1" smd rect
+		(at 0 42 90)
+		(size 2 4)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "ae7ead5e-02aa-4e86-acb0-65b9c803abca")
+	)
+	(pad "2" smd rect
+		(at 0 0 90)
+		(size 2 4)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(uuid "65e6656b-26fa-473e-92a5-a7e8dabb099e")
+	)
+	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/PHA225.step"
+		(offset
+			(xyz 0 -21 0.5)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

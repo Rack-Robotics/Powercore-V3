@@ -1,0 +1,187 @@
+(footprint "Symbol_Attention_Triangle_17x15mm_Copper"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "8.0")
+	(layer "F.Cu")
+	(descr "Symbol, attention, 17x15mm, copper layer")
+	(tags "warning graphic")
+	(property "Reference" "REF**"
+		(at 0 -8.5 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "4590c4f2-d38d-4905-a121-629ca76b63c3")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Symbol_Attention_Triangle_17x15mm_Copper"
+		(at 0.381 8.5 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a36397de-27db-40a9-bf00-af30bf0f1ff8")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Footprint" "Symbol:Symbol_Attention_Triangle_17x15mm_Copper"
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "1b975cf7-11ac-40a0-8edc-419d4d9e9c6c")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "41b9004f-2ef0-49f1-ba15-aba3b4807ef4")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "138f053f-034c-4fa2-a43f-0929dbd15d32")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr exclude_from_pos_files exclude_from_bom allow_missing_courtyard)
+	(fp_line
+		(start -7.136839 6.704632)
+		(end -7.403161 6.295368)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.Cu")
+		(uuid "7802a82e-8173-4f82-aaf8-7642e07226cf")
+	)
+	(fp_line
+		(start 7.096839 6.684632)
+		(end 7.363161 6.275368)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.Cu")
+		(uuid "1dc0e668-f045-49da-a9e1-c08edcce7613")
+	)
+	(fp_line
+		(start 8 6.93)
+		(end 7.55 6.15)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.Cu")
+		(uuid "2f43a1ec-20e4-447a-a0f6-0850448e3911")
+	)
+	(fp_line
+		(start -8 6.93)
+		(end 0 -6.93)
+		(stroke
+			(width 0.8)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "d5153a10-2cee-429e-b7c6-41716f058adf")
+	)
+	(fp_line
+		(start -0.27 -6.08)
+		(end 0.25 -6.08)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(layer "F.SilkS")
+		(uuid "d737ebd0-2477-444a-8eb7-136c93694693")
+	)
+	(fp_line
+		(start 8 6.93)
+		(end -8 6.93)
+		(stroke
+			(width 0.8)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "b826bcf6-921f-4001-a929-f53d3bb9cf36")
+	)
+	(fp_line
+		(start 8 6.93)
+		(end -0.000105 -6.929939)
+		(stroke
+			(width 0.8)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "c63b2206-029d-42ea-b558-773b305069af")
+	)
+	(fp_circle
+		(center 0 -3)
+		(end 0.8 -3)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.SilkS")
+		(uuid "f4e8f59b-b754-4dfc-993b-51645f78f4e7")
+	)
+	(fp_circle
+		(center 0 3)
+		(end 0.4 3)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.SilkS")
+		(uuid "704a27df-4b4a-4534-96f7-b4b01edda1a1")
+	)
+	(fp_circle
+		(center 0 5)
+		(end 0.8 5)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.SilkS")
+		(uuid "d0db6265-1e37-4cfc-8dbe-3f960ed8c999")
+	)
+	(fp_poly
+		(pts
+			(xy -0.4 3) (xy 0.4 3) (xy 0.8 -3) (xy -0.8 -3)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(fill solid)
+		(layer "F.SilkS")
+		(uuid "95a134fa-0e8e-4243-a2b6-eda1a51269a5")
+	)
+)
