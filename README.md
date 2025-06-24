@@ -258,7 +258,7 @@ Normal behavior of the boost converter module. The MOSFET gate (blue trace) pres
 
 ## LICENSE 
 PowercoreV3 © 2025 by Rack Robotics, Inc. is licensed under CC BY-NC-SA 4.0
-This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
 
 ### You are free to:
 - **Share** — copy and redistribute the material in any medium or format
