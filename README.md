@@ -5,6 +5,7 @@ A high-efficiency power supply unit specifically designed for Electrical Dischar
 ## Repository Structure
 
 - `circuit-boards/` - KiCAD PCB designs for all modules
+- `schematics/` - Schematic PDFs for electronics
 - `KiCAD-library/` - Custom component library and 3D models
 - `LTSpice/` - Simulation files
 - `powercoreV3-firmware/` - Arduino firmware for the RP2040 controller
