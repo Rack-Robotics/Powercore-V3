@@ -14,6 +14,8 @@ A high-efficiency power supply unit specifically designed for Electrical Dischar
 5. PWM Feedback for reporting to external feedrate control
 6. Edge detection for probing
 
+![Powercore-V3 Enclosure View](images/powercore-v3-enclosure-view.png)
+
 ## FEATURES
 
 - **Dual-Converter Topology** with internal resonance and boost converter for ultra-high power efficiency EDM machining
@@ -67,6 +69,8 @@ The Powercore-V3 provides precise control over machining parameters such as mach
 | Active Air Cooling | Recommended |
 
 ## DEVICE INTERFACES
+
+![Powercore-V3 Device Interface Diagram](images/powercore-v3-device-interface-diagram.png)
 
 ### POWER INPUT CONNECTOR
 
@@ -161,6 +165,8 @@ To enter edge-detection mode, send the 'EDGE_DETECTION_MODE' command over the se
 
 ## APPLICATION EXAMPLE: MINIMUM IMPLEMENTATION
 
+![Powercore-V3 Minimum Implementation](images/powercore-v3-min-implementation.png)
+
 The minimum application example of the device:
 
 | Input / Output | Connection Requirements |
@@ -184,3 +190,17 @@ When implemented, the machining setup should be fully enclosed, shielded, and gr
 - `KiCAD-library/` - Custom component library and 3D models
 - `LTSpice/` - Simulation files
 - `powercoreV3-firmware/` - Arduino firmware for the RP2040 controller 
+
+## Images of PCBA
+
+### PCBA View 1
+![Powercore-V3 PCBA View 1](images/powercore-v3-PCBA-view-01.png)
+
+### PCBA View 2
+![Powercore-V3 PCBA View 2](images/powercore-v3-PCBA-view-02.png)
+
+### PCBA View 3
+![Powercore-V3 PCBA View 3](images/powercore-v3-PCBA-view-03.png)
+
+### PCBA View 4
+![Powercore-V3 PCBA View 4](images/powercore-v3-PCBA-view-04.png)
