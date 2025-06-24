@@ -227,4 +227,44 @@ Normal behavior of the boost converter module. The MOSFET gate (blue trace) pres
 - `circuit-boards/` - KiCAD PCB designs for all modules
 - `KiCAD-library/` - Custom component library and 3D models
 - `LTSpice/` - Simulation files
-- `powercoreV3-firmware/` - Arduino firmware for the RP2040 controller 
+- `powercoreV3-firmware/` - Arduino firmware for the RP2040 controller
+
+## LICENSE 
+
+This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
+
+### You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
+
+### Under the following terms:
+- **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made
+- **NonCommercial** — You may not use the material for commercial purposes
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original
+
+### Additional Terms:
+- No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits
+- No warranties are given — The license may not give you all of the permissions necessary for your intended use
+
+For the full license text, see: https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+This includes all hardware designs, firmware, documentation, and associated files in this repository. Commercial use requires explicit written permission from the project maintainers. 
+
+The name 'Powercore' and 'Rack Robotics' are trademarked, and only to be used by Rack Robotics, Inc. Any derivative works should remove both marks.
+
+## ⚠️ HIGH VOLTAGE SAFETY WARNING ⚠️
+
+**DANGER - HIGH VOLTAGE PRESENT**
+This device generates and outputs high-voltage DC, which could be hazardous. Before operating, building, or servicing this equipment, read and understand all safety warnings.
+
+ELECTRICAL HAZARDS
+- **DANGEROUS VOLTAGES PRESENT**: Output voltages up to 150V DC can cause electrical shock or burns
+- **STORED ENERGY**: Internal capacitors retain dangerous voltages even when power is disconnected
+- **DISCHARGES**: High-energy discharges can cause burns, eye damage, and ignite flammable materials
+
+LEGAL DISCLAIMER
+- Users assume all responsibility for safe operation and compliance with local electrical codes
+- This equipment is intended for use by qualified professionals only
+- Improper use may result in serious injury, death, or property damage
+- The manufacturer disclaims all liability for injuries or damages resulting from improper use
+**IF YOU ARE NOT QUALIFIED TO WORK WITH HIGH-VOLTAGE EQUIPMENT, DO NOT PROCEED**
