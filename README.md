@@ -1,4 +1,4 @@
-# PowercoreV3
+# Powercore V3
 
 A high-efficiency power supply unit specifically designed for Electrical Discharge Machining (EDM) applications.
 
@@ -48,7 +48,7 @@ A high-efficiency power supply unit specifically designed for Electrical Dischar
 5. PWM Feedback for reporting to external feedrate control
 6. Edge detection for probing
 
-![Powercore-V3 Enclosure View](images/powercore-v3-enclosure-view.png)
+![Powercore V3 Enclosure View](images/powercore-v3-enclosure-view.png)
 
 ## FEATURES
 
@@ -68,7 +68,7 @@ A high-efficiency power supply unit specifically designed for Electrical Dischar
 
 ## GENERAL DESCRIPTION
 
-The Powercore-V3 provides precise control over machining parameters such as machining dutycycle, spark initiation voltage, and machining frequency. The Powercore-V3 is optimized for both desktop scale wire EDM systems. Its open-source design ensures adaptability for scientific research, development, and custom EDM implementations.
+The Powercore V3 provides precise control over machining parameters such as machining dutycycle, spark initiation voltage, and machining frequency. The Powercore V3 is optimized for both desktop scale wire EDM systems. Its open-source design ensures adaptability for scientific research, development, and custom EDM implementations.
 
 ## SPECIFICATIONS
 
@@ -104,7 +104,7 @@ The Powercore-V3 provides precise control over machining parameters such as mach
 
 ## DEVICE INTERFACES
 
-![Powercore-V3 Device Interface Diagram](images/powercore-v3-device-interface-diagram.png)
+![Powercore V3 Device Interface Diagram](images/powercore-v3-device-interface-diagram.png)
 
 ### POWER INPUT CONNECTOR
 
@@ -123,7 +123,7 @@ A 4-position JST-XH header enables communication with external controllers. The 
 
 ### USB-MICRO SERIAL INTERFACE
 
-The Powercore-V3 exposes the USB-micro connector of the microcontroller module (Raspberry Pi 2040 Pico) for configuration of the machining parameters and the sharing of PSU telemetry. The default baud rate is 115200.
+The Powercore V3 exposes the USB-micro connector of the microcontroller module (Raspberry Pi 2040 Pico) for configuration of the machining parameters and the sharing of PSU telemetry. The default baud rate is 115200.
 
 The device will NOT function unless power (5V) is supplied over USB to the micro-controller module through the USB-micro connector, and only if 48VDC is already connected to the power input wago.
 
@@ -137,13 +137,13 @@ The device will NOT function unless power (5V) is supplied over USB to the micro
 
 ## THEORY OF OPERATION
 
-The Powercore-V3 power supply unit is engineered for Electrical Discharge Machining (EDM), delivering precise control over the rapid cycling of spark initiation, heating, and termination. The unit generates thousands of sparks per second, seamlessly transitioning between high-voltage spark initiation and high-current spark heating, before terminating each discharge. This cycle repeats at high frequency.
+The Powercore V3 power supply unit is engineered for Electrical Discharge Machining (EDM), delivering precise control over the rapid cycling of spark initiation, heating, and termination. The unit generates thousands of sparks per second, seamlessly transitioning between high-voltage spark initiation and high-current spark heating, before terminating each discharge. This cycle repeats at high frequency.
 
-**Spark Initiation Voltage**: This parameter determines the conditions for spark formation. Higher voltages produce longer, more intense sparks, ideal for machining materials such as steel. The Powercore-V3 allows precise adjustment of spark initiation voltage to optimize performance for various materials.
+**Spark Initiation Voltage**: This parameter determines the conditions for spark formation. Higher voltages produce longer, more intense sparks, ideal for machining materials such as steel. The Powercore V3 allows precise adjustment of spark initiation voltage to optimize performance for various materials.
 
 **Machining Duty Cycle**: The duty cycle governs the duration of each spark discharge. A longer duty cycle increases the material removal rate (MRR) but may result in greater surface roughness. Users can adjust the duty cycle to balance speed and surface finish based on application requirements.
 
-**Machining Frequency**: This setting controls the number of spark discharges per second. Lower frequencies enhance the material removal rate but may compromise surface smoothness. The Powercore-V3 enables fine-tuning of machining frequency to achieve the desired balance between efficiency and surface quality.
+**Machining Frequency**: This setting controls the number of spark discharges per second. Lower frequencies enhance the material removal rate but may compromise surface smoothness. The Powercore V3 enables fine-tuning of machining frequency to achieve the desired balance between efficiency and surface quality.
 
 **Machining Current**: The machining current, typically ranging from 40 A to 70 A, is determined by the fixed 48 VDC output during the high-current phase, combined with the impedance of the output cables and the spark discharge gap. The machining current is non-adjustable.
 
@@ -179,7 +179,7 @@ The device remains in idle mode until the enable port is connected to 3.3 V. In 
 
 ### ISO-FREQUENCY MODE
 
-In iso-frequency mode, the discharge frequency is constant. However, random fluctuations in ignition delay may cause variations in the energy transferred per discharge, resulting in less efficient material removal and greater variation in surface roughness. The Powercore-V3 enters iso-frequency mode by default or when the 'EDM_ISOFREQUENCY_MODE' command is sent over the USB interface.
+In iso-frequency mode, the discharge frequency is constant. However, random fluctuations in ignition delay may cause variations in the energy transferred per discharge, resulting in less efficient material removal and greater variation in surface roughness. The Powercore V3 enters iso-frequency mode by default or when the 'EDM_ISOFREQUENCY_MODE' command is sent over the USB interface.
 
 To enter iso-frequency mode for EDM, the enable port must be pulled high to 3.3 V. If the enable port is not pulled high, the device remains in idle mode.
 
@@ -193,13 +193,13 @@ To enter iso-frequency mode for EDM, the enable port must be pulled high to 3.3 
 
 ### EDGE-DETECTION MODE
 
-In edge-detection mode, the Powercore-V3 functions as a probe, reporting collisions between the electrode and the workpiece via the PWM feedback port. Edge-detection mode is intended for setup and calibration before machining, not for use during machining. The device remains in edge-detection mode until commanded to switch to another mode, such as iso-frequency mode.
+In edge-detection mode, the Powercore V3 functions as a probe, reporting collisions between the electrode and the workpiece via the PWM feedback port. Edge-detection mode is intended for setup and calibration before machining, not for use during machining. The device remains in edge-detection mode until commanded to switch to another mode, such as iso-frequency mode.
 
 To enter edge-detection mode, send the 'EDGE_DETECTION_MODE' command over the serial interface, and pull the enable port high to 3.3 V. The device will remain in edge-detection mode until commanded to enter another mode.
 
 ## APPLICATION EXAMPLE: MINIMUM IMPLEMENTATION
 
-![Powercore-V3 Minimum Implementation](images/powercore-v3-min-implementation.png)
+![Powercore V3 Minimum Implementation](images/powercore-v3-min-implementation.png)
 
 The minimum application example of the device:
 
@@ -212,7 +212,7 @@ The minimum application example of the device:
 
 ## EMC & EMI
 
-The Powercore-V3 power supply unit is housed in a precision-machined, billet-aluminum enclosure, fully grounded to minimize electromagnetic interference. When no output cables are connected, radiated emissions are negligible. However, when output cables are attached, radiated emissions vary based on cable characteristics, including length, twist, and wire gauge.
+The Powercore V3 power supply unit is housed in a precision-machined, billet-aluminum enclosure, fully grounded to minimize electromagnetic interference. When no output cables are connected, radiated emissions are negligible. However, when output cables are attached, radiated emissions vary based on cable characteristics, including length, twist, and wire gauge.
 
 To ensure optimal performance and compliance with electromagnetic compatibility standards, output cables must be shielded, grounded, and twisted. Poorly designed or unshielded cables may increase radiated emissions, potentially interfering with sensitive external electronic equipment.
 
@@ -221,44 +221,43 @@ When implemented, the machining setup should be fully enclosed, shielded, and gr
 ## Images of PCBA
 
 ### PCBA View 1
-![Powercore-V3 PCBA View 1](images/powercore-v3-PCBA-view-01.png)
+![Powercore V3 PCBA View 1](images/powercore-v3-PCBA-view-01.png)
 
 ### PCBA View 2
-![Powercore-V3 PCBA View 2](images/powercore-v3-PCBA-view-02.png)
+![Powercore V3 PCBA View 2](images/powercore-v3-PCBA-view-02.png)
 
 ### PCBA View 3
-![Powercore-V3 PCBA View 3](images/powercore-v3-PCBA-view-03.png)
+![Powercore V3 PCBA View 3](images/powercore-v3-PCBA-view-03.png)
 
 ### PCBA View 4
-![Powercore-V3 PCBA View 4](images/powercore-v3-PCBA-view-04.png)
+![Powercore V3 PCBA View 4](images/powercore-v3-PCBA-view-04.png)
 
 ## Typical PSU Waveforms
 
 ### Output Stage Switch Control
 Normal behavior of output stage switches during EDM iso-frequency mode. The enable (yellow trace) and high-current phase (red trace) switches are both active at the same time, permitting current flow from the positive electrode to the negative electrode. The high-voltage switch is active several microseconds before each switching event, for the purpose of charging the output capacitor to the spark initiation voltage (blue trace).
 
-![Powercore-V3 Waveform 1](images/powercore-v3-waveform-01.png)
+![Powercore V3 Waveform 1](images/powercore-v3-waveform-01.png)
 
 ### Gap Voltage with Electrodes Separated
 Normal behavior of output stages during EDM iso-frequency mode, with the electrodes separated by several millimeters under distilled water. The positive (+) electrode (red trace) shows the change in gap voltage when the output capacitor is charged, and then slowly discharged through the water.
 
-![Powercore-V3 Waveform 2](images/powercore-v3-waveform-02.png)
+![Powercore V3 Waveform 2](images/powercore-v3-waveform-02.png)
 
 ### EDM Discharge Behavior
 Normal behavior of output stages during EDM iso-frequency mode, during electrical discharge machining. The positive (+) electrode voltage changes rapidly during an EDM discharge; transitioning from the spark initiation voltage (here 80V) to the gap machining voltage (~40V) in several hundred nanoseconds.
 
-![Powercore-V3 Waveform 3](images/powercore-v3-waveform-03.png)
+![Powercore V3 Waveform 3](images/powercore-v3-waveform-03.png)
 
-![Powercore-V3 Waveform 4](images/powercore-v3-waveform-04.png)
+![Powercore V3 Waveform 4](images/powercore-v3-waveform-04.png)
 
 ### Boost Converter Operation
 Normal behavior of the boost converter module. The MOSFET gate (blue trace) presents with short pulses, which are used to maintain a stable output voltage. The output voltage will be set by the I2C digital potentiometer to between 64 and 150 V.
 
-![Powercore-V3 Waveform 5](images/powercore-v3-waveform-05.png)
+![Powercore V3 Waveform 5](images/powercore-v3-waveform-05.png)
 
 ## LICENSE 
-PowercoreV3 © 2025 by Rack Robotics, Inc. is licensed under CC BY-NC-SA 4.0
-This project is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
+The Powercore V3 2025 by Rack Robotics, Inc. is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
 
 ### You are free to:
 - **Share** — copy and redistribute the material in any medium or format
@@ -268,16 +267,19 @@ This project is licensed under the Creative Commons Attribution-NonCommercial-Sh
 - **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made
 - **NonCommercial** — You may not use the material for commercial purposes
 - **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original
+- **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits
 
-### Additional Terms:
-- No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits
-- No warranties are given — The license may not give you all of the permissions necessary for your intended use
+### Notices:
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation .
+
+No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
 
 For the full license text, see: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
 This includes all hardware designs, firmware, documentation, and associated files in this repository. Commercial use requires explicit written permission from the project maintainers. 
 
-The name 'Powercore' and 'Rack Robotics' are trademarked, and only to be used by Rack Robotics, Inc. Any derivative works should remove both marks.
+### Trademark
+The name 'Powercore' and 'Rack Robotics' are property of Rack Robotics, Inc. and are only to be used by Rack Robotics, Inc. Any derivative works must remove both marks unless written permission to use either or both marks is provided by Rack Robotics, Inc.
 
 ## ⚠️ HIGH VOLTAGE SAFETY WARNING ⚠️
 
