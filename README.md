@@ -204,3 +204,27 @@ When implemented, the machining setup should be fully enclosed, shielded, and gr
 
 ### PCBA View 4
 ![Powercore-V3 PCBA View 4](images/powercore-v3-PCBA-view-04.png)
+
+## Typical PSU Waveforms
+
+### Output Stage Switch Control
+Normal behavior of output stage switches during EDM iso-frequency mode. The enable (yellow trace) and high-current phase (red trace) switches are both active at the same time, permitting current flow from the positive electrode to the negative electrode. The high-voltage switch is active several microseconds before each switching event, for the purpose of charging the output capacitor to the spark initiation voltage (blue trace).
+
+![Powercore-V3 Waveform 1](images/powercore-v3-waveform-01.png)
+
+### Gap Voltage with Electrodes Separated
+Normal behavior of output stages during EDM iso-frequency mode, with the electrodes separated by several millimeters under distilled water. The positive (+) electrode (red trace) shows the change in gap voltage when the output capacitor is charged, and then slowly discharged through the water.
+
+![Powercore-V3 Waveform 2](images/powercore-v3-waveform-02.png)
+
+### EDM Discharge Behavior
+Normal behavior of output stages during EDM iso-frequency mode, during electrical discharge machining. The positive (+) electrode voltage changes rapidly during an EDM discharge; transitioning from the spark initiation voltage (here 80V) to the gap machining voltage (~40V) in several hundred nanoseconds.
+
+![Powercore-V3 Waveform 3](images/powercore-v3-waveform-03.png)
+
+![Powercore-V3 Waveform 4](images/powercore-v3-waveform-04.png)
+
+### Boost Converter Operation
+Normal behavior of the boost converter module. The MOSFET gate (blue trace) presents with short pulses, which are used to maintain a stable output voltage. The output voltage will be set by the I2C digital potentiometer to between 64 and 150 V.
+
+![Powercore-V3 Waveform 5](images/powercore-v3-waveform-05.png)
