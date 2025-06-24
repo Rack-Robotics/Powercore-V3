@@ -2,6 +2,39 @@
 
 A high-efficiency power supply unit specifically designed for Electrical Discharge Machining (EDM) applications.
 
+## Repository Structure
+
+- `circuit-boards/` - KiCAD PCB designs for all modules
+- `KiCAD-library/` - Custom component library and 3D models
+- `LTSpice/` - Simulation files
+- `powercoreV3-firmware/` - Arduino firmware for the RP2040 controller
+
+## Table of Contents
+
+- [PSU HIGHLIGHTS](#psu-highlights)
+- [FEATURES](#features)
+- [APPLICATIONS](#applications)
+- [GENERAL DESCRIPTION](#general-description)
+- [SPECIFICATIONS](#specifications)
+- [Recommended Operating Conditions](#recommended-operating-conditions)
+- [DEVICE INTERFACES](#device-interfaces)
+  - [Power Input Connector](#power-input-connector)
+  - [Power Output Connector](#power-output-connector)
+  - [Digital Interface Connector](#digital-interface-connector)
+  - [USB-Micro Serial Interface](#usb-micro-serial-interface)
+- [THEORY OF OPERATION](#theory-of-operation)
+- [OPERATION MODES](#operation-modes)
+  - [Startup Behavior](#startup-behavior)
+  - [Idle Mode](#idle-mode)
+  - [Iso-Frequency Mode](#iso-frequency-mode)
+  - [Edge-Detection Mode](#edge-detection-mode)
+- [APPLICATION EXAMPLE: MINIMUM IMPLEMENTATION](#application-example-minimum-implementation)
+- [EMC & EMI](#emc--emi)
+- [Images of PCBA](#images-of-pcba)
+- [Typical PSU Waveforms](#typical-psu-waveforms)
+- [LICENSE](#license)
+- [⚠️ HIGH VOLTAGE SAFETY WARNING ⚠️](#️-high-voltage-safety-warning-️)
+
 ## PSU HIGHLIGHTS
 
 1. Optimized for wire EDM
@@ -221,13 +254,6 @@ Normal behavior of output stages during EDM iso-frequency mode, during electrica
 Normal behavior of the boost converter module. The MOSFET gate (blue trace) presents with short pulses, which are used to maintain a stable output voltage. The output voltage will be set by the I2C digital potentiometer to between 64 and 150 V.
 
 ![Powercore-V3 Waveform 5](images/powercore-v3-waveform-05.png)
-
-## Repository Structure
-
-- `circuit-boards/` - KiCAD PCB designs for all modules
-- `KiCAD-library/` - Custom component library and 3D models
-- `LTSpice/` - Simulation files
-- `powercoreV3-firmware/` - Arduino firmware for the RP2040 controller
 
 ## LICENSE 
 
