@@ -6,7 +6,7 @@
 //This firmware is for Powercore hardware revision E. 
 
 // Software Version
-const String SOFTWARE_VERSION = "0.4.1-alpha";
+const String SOFTWARE_VERSION = "0.4.3-alpha";
 
 //=============================================================================
 // INCLUDES
@@ -110,7 +110,7 @@ volatile int machiningInitVoltage = 80;                 // Initiation voltage in
 volatile double maxDischargeSuccessRateThreshold = 0.80f; // Maximum discharge success rate threshold
 
 // Feature Flags
-const bool sendPeriodicTelemetryEnabled = true;        // If true, the device will send periodic telemetry over serial
+const bool sendPeriodicTelemetryEnabled = true;         // If true, the device will send periodic telemetry over serial
 const bool allowPulseSkipping = true;                   // If true, the device will allow pulse skipping in order to attempt to clear/reduce faults
 
 // Boost Converter Module Globals 
@@ -134,7 +134,7 @@ volatile int dpotVoltageTable[MAX_BOOST_CONVERTER_DPOT_POSITION + 1];
 const int ADC_RESOLUTION_BITS = 12;                     // ADC resolution in bits (0-4095)
 const uint32_t PWM_BASE_CLOCK_FREQ = 200000000;         // Base clock frequency for PWM (200MHz)
 const int MAX_PARAMETERS = 4;                           // Maximum number of parameters for command processing
-volatile uint32_t edmFeedbackPwmFrequency_Hz = 10000;    // Frequency for EDM_FEEDBACK PWM in Hz
+volatile uint32_t edmFeedbackPwmFrequency_Hz = 10000;   // Frequency for EDM_FEEDBACK PWM in Hz
 const uint16_t EDM_FEEDBACK_PWM_CLOCK_DIVIDER = 10;     // Set to 10 to fit within uint8_t
 
 // Timing Constants
@@ -144,7 +144,7 @@ const int serialInitializationBlinkInterval_MS = 500;   // Interval for serial i
 const int periodicTelemetryInterval_MS = 1000;          // Interval for sending periodic telemetry (1000 ms)
 volatile int dischargeRateCalculationInterval_MICROS = 0;  // Interval for calculating discharge success rate (is calculated from machining frequency)
 
-// Isopulse Parameter Limits
+//  Parameter Limits
 const float MIN_ON_TIME_MICROS = 0.625f;                // Minimum on-time in microseconds
 const float MAX_ON_TIME_MICROS = 160.0f;                // Maximum on-time in microseconds
 const float MIN_OFF_TIME_MICROS = 10.625f;              // Minimum off-time in microseconds
@@ -164,10 +164,10 @@ const int PMM_CALIBRATION_SAMPLES = 100;               // Number of samples to t
 const int PMM_CALIBRATION_DELAY_MS = 1;                // Delay between PMM calibration samples in milliseconds
 
 // Output Current Sensor Constants
-const float ISENSE_OUTPUT_V_PER_AMP = 0.025f;      // 25 mV per amp for output current sensor (TMCS1133)
-const int ISENSE_OUTPUT_AMPS_PER_VOLT = 40;          // 40 amps per volt for output current sensor (TMCS1133)
-const float OUTPUT_CURRENT_ZERO_OFFSET = 0.33f;        // Zero current offset of output current sensor (TMCS1133), in volts
-const int DEFAULT_OUTPUT_CURRENT_THRESHOLD_A = 8;     // Default threshold for output current sensor (40 A)
+const float ISENSE_OUTPUT_V_PER_AMP = 0.025f;           // 25 mV per amp for output current sensor (TMCS1133C1A)
+const int ISENSE_OUTPUT_AMPS_PER_VOLT = 40;             // 40 amps per volt for output current sensor (TMCS1133C1A)
+const float OUTPUT_CURRENT_ZERO_OFFSET = 0.33f;         // Zero current offset of output current sensor (TMCS1133C1A), in volts
+const int DEFAULT_OUTPUT_CURRENT_THRESHOLD_A = 8;       // Default threshold for output current sensor (40 A)
 const int OUTPUT_CURRENT_SENSOR_CALIBRATION_SAMPLES = 100;  // Number of samples to take for output current sensor calibration
 const int OUTPUT_CURRENT_SENSOR_CALIBRATION_DELAY_MS = 1;  // Delay between output current sensor calibration samples in milliseconds
 
@@ -228,8 +228,8 @@ volatile double outputVoltageDuringFault = 0.0f;        // Output voltage readin
 volatile double outputCurrentDuringFault = 0.0f;        // Output current reading during fault condition
 
 // Output Current Sensor Calibration Variables
-volatile int outputCurrentSensorCalibrationSum = 0;  // Sum of ADC samples during output current sensor calibration
-volatile int outputCurrentSensorZeroCurrentOffset = 0;    // ADC value when no current is flowing through output current sensor
+volatile int outputCurrentSensorCalibrationSum = 0;     // Sum of ADC samples during output current sensor calibration
+volatile int outputCurrentSensorZeroCurrentOffset = 0;  // ADC value when no current is flowing through output current sensor
 
 // Edge Detection Mode Variables
 volatile uint32_t edgeDetectionWrapValue = 0;           // Wrap value for edge detection mode PWM
@@ -245,11 +245,11 @@ volatile uint32_t pwmLevelValue = 0;                    // Level value for PWM c
 volatile uint32_t pwmHighVoltageLevelValue = 0;         // Level value for high voltage phase PWM
 
 // EDM Isofrequency Mode Settings
-volatile uint32_t EDMIsofrequencyModeWrapValue = 0;      // Wrap value for EDM isofrequency mode PWM
-volatile uint32_t EDMIsofrequencyModeLevelValue = 0;    // Level value for EDM isofrequency mode PWM
-volatile uint32_t EDMIsofrequencyModeHighVoltageLevelValue = 0;   // Level value for high voltage phase PWM in EDM isofrequency mode
+volatile uint32_t EDMIsofrequencyModeWrapValue = 0;                     // Wrap value for EDM isofrequency mode PWM
+volatile uint32_t EDMIsofrequencyModeLevelValue = 0;                    // Level value for EDM isofrequency mode PWM
+volatile uint32_t EDMIsofrequencyModeHighVoltageLevelValue = 0;         // Level value for high voltage phase PWM in EDM isofrequency mode
 const uint32_t EDMIsofrequencyModeHighVoltagePulseOnTimeMicros = 1;     // Fixed 1μs on-time for high-voltage pulse. Used to calculate level for high voltage phase PWM output. Prvents shoot-through failure. 
-const double EDMIsofrequencyModeHighVoltagePwmOffsetValue = 0.25f;       // Offset value for high voltage phase PWM output. Used to calculate level for high voltage phase PWM output. Prevents shoot-through failure.
+const double EDMIsofrequencyModeHighVoltagePwmOffsetValue = 0.25f;      // Offset value for high voltage phase PWM output. Used to calculate level for high voltage phase PWM output. Prevents shoot-through failure.
 volatile unsigned long lastDischargeSuccessRateCalculationTime = 0;     // Time when discharge success rate was last calculated
 
 // Discharge Measurement Variables
@@ -262,8 +262,8 @@ volatile double avgDischargeCurrent = 0.0f;              // Running average of d
 volatile double avgDischargeVoltage = 0.0f;              // Running average of discharge voltage
 
 // Output Current Sensor Threshold Variables
-volatile float outputOvercurrentThresholdVoltage = 0.0f;// Voltage threshold for output current sensor
-volatile int outputOvercurrentThresholdLevel = 0;       // PWM value for output current sensor threshold
+volatile float outputOvercurrentThresholdVoltage = 0.0f;                // Voltage threshold for output current sensor
+volatile int outputOvercurrentThresholdLevel = 0;                       // PWM value for output current sensor threshold
 
 // PWM Variables
 PWMOutput edmFeedbackPWM;                              // PWM configuration for EDM_FEEDBACK pin
@@ -279,11 +279,11 @@ volatile double feedbackPortDutyCycle = 0.00;          // Calculated duty cycle 
 //----------------------------------------------------
 void setupPinModes() {
     // Configure PWM pins
-    gpio_set_function(SW_HIGH_VOLTAGE_PHASE, GPIO_FUNC_PWM);  // Switch for high-voltage phase
-    gpio_set_function(SW_ENABLE, GPIO_FUNC_PWM);              // Switch for connecting output (-)-electrode
-    gpio_set_function(SW_HIGH_CURRENT_PHASE, GPIO_FUNC_PWM);  // Switch for high-current phase
-    gpio_set_function(OUTPUT_OVERCURRENT_SET, GPIO_FUNC_PWM); // PWM for setting output overcurrent threshold
-    gpio_set_function(EDM_FEEDBACK, GPIO_FUNC_PWM);          // PWM for EDM feedback
+    gpio_set_function(SW_HIGH_VOLTAGE_PHASE, GPIO_FUNC_PWM);            // Switch for high-voltage phase
+    gpio_set_function(SW_ENABLE, GPIO_FUNC_PWM);                        // Switch for connecting output (-)-electrode
+    gpio_set_function(SW_HIGH_CURRENT_PHASE, GPIO_FUNC_PWM);            // Switch for high-current phase
+    gpio_set_function(OUTPUT_OVERCURRENT_SET, GPIO_FUNC_PWM);           // PWM for setting output overcurrent threshold
+    gpio_set_function(EDM_FEEDBACK, GPIO_FUNC_PWM);                     // PWM for EDM feedback
     
     // Digital Pins
     pinMode(EDM_ENABLE, INPUT);       
@@ -304,11 +304,11 @@ void setupPinModes() {
 }
 void setupInitialPinStates() {
     // Function to set initial pin states to be safe
-    gpio_put(PMM_ENABLE, false);                            // dissable PMM_ENABLE switch, preventing current flow between input and output.
-    gpio_put(PMM_DIAG_EN, true);                            // enable PMM fault reporting
+    gpio_put(PMM_ENABLE, false);                           // dissable PMM_ENABLE switch, preventing current flow between input and output.
+    gpio_put(PMM_DIAG_EN, true);                           // enable PMM fault reporting
     setEDMFeedbackDutyCycle(0.00);                         // Set EDM_FEEDBACK to 0% duty cycle
-    gpio_put(BUCK_ENABLE, false);                           // dissable BUCK_ENABLE switch, preventing current flow between input and output.
-    gpio_put(BUCK_ADJ_PWM, false);                          // dissable BUCK_ADJ_PWM pin, not used.
+    gpio_put(BUCK_ENABLE, false);                          // dissable BUCK_ENABLE switch, preventing current flow between input and output.
+    gpio_put(BUCK_ADJ_PWM, false);                         // dissable BUCK_ADJ_PWM pin, not used.
 }
 void setupADC() {
     analogReadResolution(ADC_RESOLUTION_BITS); // Set ADC resolution to 12 bits (0-4095)
@@ -317,11 +317,11 @@ void setupOutputPWM(double requestedMachiningDutyCycle, int requestedMachiningFr
     // Function to setup the output PWM for all modes of operation
 
     // Configure PWM pins as PWM outputs (in case they were being used as GPIOs)
-    gpio_set_function(SW_HIGH_VOLTAGE_PHASE, GPIO_FUNC_PWM);  // Switch for high-voltage phase
-    gpio_set_function(SW_ENABLE, GPIO_FUNC_PWM);              // Switch for connecting output (-)-electrode
-    gpio_set_function(SW_HIGH_CURRENT_PHASE, GPIO_FUNC_PWM);  // Switch for high-current phase
-    gpio_set_function(OUTPUT_OVERCURRENT_SET, GPIO_FUNC_PWM); // PWM for setting output overcurrent threshold
-    gpio_set_function(EDM_FEEDBACK, GPIO_FUNC_PWM);          // PWM for EDM feedback
+    gpio_set_function(SW_HIGH_VOLTAGE_PHASE, GPIO_FUNC_PWM);    // Switch for high-voltage phase
+    gpio_set_function(SW_ENABLE, GPIO_FUNC_PWM);                // Switch for connecting output (-)-electrode
+    gpio_set_function(SW_HIGH_CURRENT_PHASE, GPIO_FUNC_PWM);    // Switch for high-current phase
+    gpio_set_function(OUTPUT_OVERCURRENT_SET, GPIO_FUNC_PWM);   // PWM for setting output overcurrent threshold
+    gpio_set_function(EDM_FEEDBACK, GPIO_FUNC_PWM);             // PWM for EDM feedback
 
     // PWM Timing Calculations for Phase-Correct Mode:
     // In phase-correct mode, the counter counts up to wrap_value then down to 0
@@ -397,10 +397,10 @@ void setupOutputPWM(double requestedMachiningDutyCycle, int requestedMachiningFr
     pwm_set_chan_level(pwmOutputs[3].slice, pwmOutputs[3].channel, outputOvercurrentThresholdLevel);
 
     // Reset all counters to zero before enabling
-    pwm_set_counter(pwmOutputs[0].slice, 0);
-    pwm_set_counter(pwmOutputs[1].slice, 0);
-    pwm_set_counter(pwmOutputs[2].slice, 0);
-    pwm_set_counter(pwmOutputs[3].slice, 0);
+    pwm_set_counter(pwmOutputs[0].slice, 0); // Counter for SW_ENABLE
+    pwm_set_counter(pwmOutputs[1].slice, 0); // Counter for SW_HIGH_CURRENT_PHASE
+    pwm_set_counter(pwmOutputs[2].slice, 0); // Counter for SW_HIGH_VOLTAGE_PHASE
+    pwm_set_counter(pwmOutputs[3].slice, 0); // Counter for OUTPUT_OVERCURRENT_SET
 
     // Adjust counter for high-voltage phase for offset (also effects overcurrent threshold set, because it's the same counter)
     pwm_set_counter(pwmOutputs[2].slice, (pwmWrapValue * highVoltagePwmOffsetValue));
@@ -932,7 +932,7 @@ void updateBoostConverterDpotVoltageTable() {
     // Function to update the look up table for the boost converter digital potentiometer voltages
 
     // Serial print that the function is starting
-    Serial.println("Updating Boost Converter DPOT Voltage Table");
+    Serial.println("Updating boost converter DPOT voltage table...");
 
     // Wait for 500 ms to allow the voltage to stabilize
     delay(500);
@@ -950,7 +950,7 @@ void updateBoostConverterDpotVoltageTable() {
     );
 
     // Serial print that the DPOT is being set to the minimum position
-    Serial.println("Setting DPOT to minimum position");
+    Serial.println("Setting DPOT to minimum position...");
 
     // Set the DPOT to the 64 position, which is the device default position on startup
     writeBoostConverterDigitalPotentiometer(64);
@@ -958,7 +958,7 @@ void updateBoostConverterDpotVoltageTable() {
     // read the position of the DPOT and make sure it is 64
     int currentDPOTPosition = readBoostConverterDigitalPotentiometer();
     if (currentDPOTPosition != 64) {
-        Serial.println("ERROR: DPOT is not at position 64 as expected");
+        Serial.println("ERROR: DPOT is not at expected position");
         // Call a fault
         handleHighVoltagePhaseSetupFault();
     }
@@ -970,13 +970,13 @@ void updateBoostConverterDpotVoltageTable() {
     }
 
     // Serial print that we are waiting for the voltage to stabilize after setting the output PWM
-    Serial.println("Waiting for voltage to stabilize");
+    Serial.println("Waiting for voltage to stabilize...");
 
     // wait for the voltage to stabilize after setting the output PWM
     delay(250);
 
     // Serial print that we are starting to read the voltages
-    Serial.println("Reading voltages for DPOT look up table");
+    Serial.println("Reading voltages for DPOT lookup table...");
 
     // For every position in the look up table, set the digital potentiometer to the position and read the voltage. Then store the voltage in the look up table.
     for (int i = 0; i <= MAX_BOOST_CONVERTER_DPOT_POSITION; i++) {
@@ -1111,7 +1111,9 @@ void sendTelemetry() {
             Serial.println("FAULT");
             break;
         case OPERATING:
-            Serial.println("OPERATING");
+            // Print the mode of operation
+            Serial.print("OPERATING: ");
+            Serial.println(modeOfOperation);
             break;
         case IDLE:
             Serial.println("IDLE");
@@ -1128,9 +1130,6 @@ void sendTelemetry() {
     Serial.print("INPUT_POWER ");
     Serial.print((int)(avgDeviceInputCurrent * 48));  // 2 decimal places
     Serial.println("W ");
-    Serial.print("FEEDBACK_DUTY_CYCLE ");
-    Serial.print(feedbackPortDutyCycle * 100);
-    Serial.println("%");
 
     // The telemetry sent is talored to the current mode of operation
     if (modeOfOperation == EDGE_DETECTION_MODE) {
@@ -1142,6 +1141,7 @@ void sendTelemetry() {
             Serial.println("NO EDGE DETECTED YET");
         }
     }
+    // If the mode is isofrequency mode or isopulse mode, print the telemetry
     else if (modeOfOperation == EDM_ISOFREQUENCY_MODE) {
         Serial.print("AVG_DISCHARGE_CURRENT:");
         Serial.print(avgDischargeCurrent, 2);
@@ -1429,7 +1429,7 @@ void setupOutputPWMForEdgeDetection() {
     );
 }
 
-// Function Definitions for EDM Isofrequency Mode
+// Function Definitions for EDM Iso-frequency Mode
 // In Isofrequency mode, the device outputs pulses at a constant frequency. The discharge duration may vary slightly due to ignition delays
 //----------------------------------------------------
 void EDMIsofrequencyMode() {
@@ -1556,7 +1556,6 @@ void setupOutputPWMForEDMIsofrequencyMode(double requestedMachiningDutyCycle, in
         EDMIsofrequencyModeHighVoltagePwmOffsetValue     // Specific to EDM Isofrequency Mode
     );
 }
-
 // Void Setup()
 void setup() {
     // Current time in milliseconds
