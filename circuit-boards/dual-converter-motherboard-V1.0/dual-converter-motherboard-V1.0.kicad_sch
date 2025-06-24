@@ -3290,7 +3290,7 @@
 		)
 		(uuid "97aa42c2-787b-4476-8280-6bfc96669713")
 	)
-	(text_box "Powercore V3 Theory of Operation\n\nThis schematic outlines a dual-converter power supply unit (PSU) for wire electrical discharge machining (EDM), using a modular architecture with high-voltage/low-current and low-voltage/high-current phases. An RP2040 microcontroller (U1) digitally configures machining parameters for precise material removal.\n\nHigh-Voltage Phase\nThe HIGH-VOLTAGE_PHASE_MODULE (U3) generates a 64-150 V pulse via a boost converter, triggering dielectric breakdown across the electrode-workpiece gap (E1, SparkGap) to form a conductive plasma channel. Its output (VOUT, pin 1) feeds the output stage, with spark initiation voltage adjustable via I2C (SDA, SCL, pins 5-4) controlled by the RP2040.\n\nPhase Transition\nThe output stage rapidly switches from the high-voltage to the high-current phase. High-current SiC diodes ensure the plasma channel remains conductive during this transition, controlled by RP2040 signals SW_HIGH-VOLTAGE-PHASE and SW_HIGH-CURRENT-PHASE.\n\nHigh-Current Phase\nThe HIGH-CURRENT_PHASE_MODULE (U2) delivers a low-voltage (30-50 V), high-current (30-70 A, depending on output impedance) pulse through the plasma channel, heating it to vaporize and melt workpiece material. \n\nCyclic Operation\nThe PSU alternates between phases at 5-64 kHz, with a high-current phase duty cycle up to 15%, set by the RP2040. Digitally adjustable spark initiation voltage and duty cycle enable material-specific tuning, with cycles repeating thousands of times per second.\n\nPower Management Module\nThe POWER_MANAGEMENT_MODULE (U1) monitors input current and reports to the RP2040. In case of a power fault, short-circuit, or voltage drop, it disconnects input power, acting as a fuse.\n\nOutput Sensing and Feedback\nThe output stage monitors current via a 1 MHz, 120 A maximum isolated sensor and voltage via a precision divider. The RP2040 tracks both signals (OUTPUT_ISENSE, OUTPUT_VSENSE). The PSU reports the ratio of observed to expected discharges via the EDM_FEEDBACK port (J3, pin 2) as a PWM signal, enabling feedrate adjustment for an external motion controller."
+	(text_box "Powercore V3 Theory of Operation\n\nThis schematic outlines a dual-converter power supply unit (PSU) for wire electrical discharge machining (EDM), using a modular architecture with high-voltage/low-current and low-voltage/high-current phases. An RP2040 microcontroller (U1) digitally configures machining parameters for precise material removal.\n\nHigh-Voltage Phase\nThe HIGH-VOLTAGE_PHASE_MODULE (U3) generates a 64-150 V pulse via a boost converter, triggering dielectric breakdown across the electrode-workpiece gap (E1, SparkGap) to form a conductive plasma channel. Its output (VOUT, pin 1) feeds the output stage, with spark initiation voltage adjustable via I2C (SDA, SCL, pins 5-4) controlled by the RP2040.\n\nPhase Transition\nThe output stage rapidly switches from the high-voltage to the high-current phase. High-current SiC diodes ensure the plasma channel remains conductive during this transition, controlled by RP2040 signals SW_HIGH-VOLTAGE-PHASE and SW_HIGH-CURRENT-PHASE.\n\nHigh-Current Phase\nThe HIGH-CURRENT_PHASE_MODULE (U2) delivers a low-voltage, high-current (30-70 A, depending on output impedance) pulse through the plasma channel, heating it to vaporize and melt workpiece material. \n\nCyclic Operation\nThe PSU alternates between phases at 5-64 kHz, with a high-current phase duty cycle up to 15%, set by the RP2040. Digitally adjustable spark initiation voltage and duty cycle enable material-specific tuning, with cycles repeating thousands of times per second.\n\nPower Management Module\nThe POWER_MANAGEMENT_MODULE (U1) monitors input current and reports to the RP2040. In case of a power fault, short-circuit, or voltage drop, it disconnects input power, acting as a fuse.\n\nOutput Sensing and Feedback\nThe output stage monitors current via a 1 MHz, 120 A maximum isolated sensor and voltage via a precision divider. The RP2040 tracks both signals (OUTPUT_ISENSE, OUTPUT_VSENSE). The PSU reports the ratio of observed to expected discharges via the EDM_FEEDBACK port (J3, pin 2) as a PWM signal, enabling feedrate adjustment for an external motion controller."
 		(exclude_from_sim no)
 		(at 12.7 210.82 0)
 		(size 114.3 73.66)
@@ -5651,7 +5651,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0c759b20-9af6-4767-b17d-cf9480b5079e")
-		(property "Reference" "#PWR015"
+		(property "Reference" "#PWR016"
 			(at 308.61 208.28 0)
 			(effects
 				(font
@@ -5701,7 +5701,7 @@
 		(instances
 			(project "dual-converter-motherboard-V1.0"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR015")
+					(reference "#PWR016")
 					(unit 1)
 				)
 			)
@@ -6070,7 +6070,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "1177bf7a-afee-4020-a92c-8d08c525730b")
-		(property "Reference" "#PWR014"
+		(property "Reference" "#PWR015"
 			(at 370.84 182.88 0)
 			(effects
 				(font
@@ -6120,7 +6120,7 @@
 		(instances
 			(project "dual-converter-motherboard-RevCV1.0"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR014")
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
@@ -9036,7 +9036,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8506a4cb-621a-4229-abd1-102a15be5b2a")
-		(property "Reference" "#PWR013"
+		(property "Reference" "#PWR014"
 			(at 330.2 182.88 0)
 			(effects
 				(font
@@ -9086,7 +9086,7 @@
 		(instances
 			(project "dual-converter-motherboard-RevCV1.0"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR013")
+					(reference "#PWR014")
 					(unit 1)
 				)
 			)
@@ -10068,7 +10068,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "db4595d6-3019-409e-9f48-daa482a418f1")
-		(property "Reference" "#PWR017"
+		(property "Reference" "#PWR011"
 			(at 74.93 170.18 0)
 			(effects
 				(font
@@ -10118,7 +10118,7 @@
 		(instances
 			(project ""
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR017")
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -10269,7 +10269,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e22809a9-cded-4958-b223-fe6eb34c5b9e")
-		(property "Reference" "#PWR016"
+		(property "Reference" "#PWR017"
 			(at 335.28 208.28 0)
 			(effects
 				(font
@@ -10319,7 +10319,7 @@
 		(instances
 			(project "dual-converter-motherboard-V1.0"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR016")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -10335,7 +10335,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "e9344809-a814-41ac-959c-e51718e7200f")
-		(property "Reference" "#PWR012"
+		(property "Reference" "#PWR013"
 			(at 303.53 182.88 0)
 			(effects
 				(font
@@ -10385,7 +10385,7 @@
 		(instances
 			(project "dual-converter-motherboard-RevCV1.0"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR012")
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -10849,7 +10849,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "fa902a79-29ea-44f8-9475-4d0d909605ea")
-		(property "Reference" "#PWR011"
+		(property "Reference" "#PWR012"
 			(at 375.92 163.83 0)
 			(effects
 				(font
@@ -10900,7 +10900,7 @@
 		(instances
 			(project "dual-converter-motherboard-RevCV1.0"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "#PWR011")
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)

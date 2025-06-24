@@ -21399,7 +21399,7 @@
 			(uuid "e7f36062-a51e-4f0b-bdec-4c57632a150b")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/S4B-XH-SM4-TB.STEP"
+		(model "${PROJECT_3D_MODELS}/S4B-XH-SM4-TB.STEP"
 			(offset
 				(xyz 0 -3.5 0)
 			)
@@ -31435,7 +31435,7 @@
 			(uuid "c90a78db-283e-4774-812f-dd1cca86ffc6")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/SC0915.step"
+		(model "${PROJECT_3D_MODELS}/SC0915.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -31443,7 +31443,7 @@
 				(xyz 1 1 1)
 			)
 			(rotate
-				(xyz -90 0 0)
+				(xyz -90 -0 -0)
 			)
 		)
 	)
@@ -40559,7 +40559,7 @@
 			(at -7.2 4.4 0)
 			(unlocked yes)
 			(layer "B.SilkS")
-			(uuid "1cefbb74-fae2-4aa1-aa87-ef4717d7323d")
+			(uuid "9302c2a9-ae69-4808-a1b4-44439f23eadc")
 			(effects
 				(font
 					(size 1 1)
@@ -40568,11 +40568,11 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "TMCS1133C2AQDVGR"
+		(property "Value" "TMCS1133C1A"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
-			(uuid "4054d7c7-0bf1-4ce5-8233-dfaa5990cc8e")
+			(uuid "b11cc64a-5dbb-451b-a2cc-2d3c35bf26e9")
 			(effects
 				(font
 					(size 1 1)
@@ -40585,7 +40585,7 @@
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "744c99a5-f959-4ac2-958d-d8d8083ce198")
+			(uuid "1f61b54d-42c7-4099-a182-69d3193e7b14")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40594,11 +40594,11 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "Current Sensor -4.6A ~ 91.4A 1 Channel Hall Effect Bidirectional 10-SOIC (0.295\", 7.50mm Width)"
+		(property "Description" "Current Sensor -9.2A ~ 183A 1 Channel Hall Effect Bidirectional 10-SOIC (0.295\", 7.50mm Width)"
 			(at 0 0 90)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "d20a5126-b5a5-4672-8c71-e29b9d62eb16")
+			(uuid "1577a652-2d8d-4721-b1c9-b555ab345f59")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40649,7 +40649,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Manufacturer#" "TMCS1133C2AQDVGR"
+		(property "Manufacturer#" "TMCS1133C1AQDVGR"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -40677,7 +40677,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Distributor#" "296-TMCS1133C2AQDVGRCT-ND"
+		(property "Distributor#" "296-TMCS1133C1AQDVGRCT-ND"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -40691,12 +40691,26 @@
 				(justify mirror)
 			)
 		)
-		(property "LCSC Part #" "C22445471"
+		(property "LCSC Part #" "C32266987"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "58619754-0b17-4f53-977a-68bc2a898c4f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "Sensitivity" "25 mV/A"
+			(at 0 0 270)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "dcfab486-e1f2-4905-b52e-c2456cbc36a5")
 			(effects
 				(font
 					(size 1 1)
@@ -76462,11 +76476,11 @@
 		(filled_polygon
 			(layer "F.Cu")
 			(pts
-				(xy 36.008332 41.518954) (xy 36.06805 41.554131) (xy 40.306009 44.925234) (xy 40.368782 44.999386)
+				(xy 36.015246 41.524454) (xy 36.074965 41.559631) (xy 40.306009 44.925234) (xy 40.368782 44.999386)
 				(xy 40.3984 45.091916) (xy 40.4 45.120101) (xy 40.4 46.751) (xy 40.381046 46.846288) (xy 40.32707 46.92707)
 				(xy 40.246288 46.981046) (xy 40.151 47) (xy 25.449 47) (xy 25.353712 46.981046) (xy 25.27293 46.92707)
-				(xy 25.218954 46.846288) (xy 25.2 46.751) (xy 25.2 41.749) (xy 25.218954 41.653712) (xy 25.27293 41.57293)
-				(xy 25.353712 41.518954) (xy 25.449 41.5) (xy 35.913044 41.5)
+				(xy 25.218954 46.846288) (xy 25.2 46.751) (xy 25.2 41.7545) (xy 25.218954 41.659212) (xy 25.27293 41.57843)
+				(xy 25.353712 41.524454) (xy 25.449 41.5055) (xy 35.919958 41.5055)
 			)
 		)
 		(filled_polygon

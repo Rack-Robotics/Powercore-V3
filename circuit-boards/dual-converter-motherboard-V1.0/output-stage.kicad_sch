@@ -2815,7 +2815,7 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U7"
+			(property "Reference" "U5"
 				(at 22.606 4.572 0)
 				(effects
 					(font
@@ -2824,7 +2824,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "TMCS1133C3AQDVGR"
+			(property "Value" "TMCS1133C1A"
 				(at 2.032 1.524 0)
 				(effects
 					(font
@@ -2853,17 +2853,8 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Current Sensor -4.6A ~ 91.4A 1 Channel Hall Effect Bidirectional 10-SOIC (0.295\", 7.50mm Width)"
+			(property "Description" "Current Sensor -9.2A ~ 183A 1 Channel Hall Effect Bidirectional 10-SOIC (0.295\", 7.50mm Width)"
 				(at 11.176 -34.29 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "LCSC Part #" "C22445471"
-				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -2899,7 +2890,7 @@
 					(hide yes)
 				)
 			)
-			(property "Manufacturer#" "TMCS1133C2AQDVGR"
+			(property "Manufacturer#" "TMCS1133C1AQDVGR"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2917,7 +2908,7 @@
 					(hide yes)
 				)
 			)
-			(property "Distributor#" "296-TMCS1133C2AQDVGRCT-ND"
+			(property "Distributor#" "296-TMCS1133C1AQDVGRCT-ND"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2926,7 +2917,16 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "TMCS1108A3UQDRQ1"
+			(property "LCSC Part #" "C32266987"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "TMCS1133"
 				(at 0 0 0)
 				(effects
 					(font
@@ -12791,8 +12791,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TMCS1133C2AQDVGR"
-			(at 352.298 154.686 0)
+		(property "Value" "TMCS1133C1A"
+			(at 344.932 154.432 0)
 			(effects
 				(font
 					(size 1.524 1.524)
@@ -12820,7 +12820,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Current Sensor -4.6A ~ 91.4A 1 Channel Hall Effect Bidirectional 10-SOIC (0.295\", 7.50mm Width)"
+		(property "Description" "Current Sensor -9.2A ~ 183A 1 Channel Hall Effect Bidirectional 10-SOIC (0.295\", 7.50mm Width)"
 			(at 343.154 190.5 0)
 			(effects
 				(font
@@ -12857,7 +12857,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer#" "TMCS1133C2AQDVGR"
+		(property "Manufacturer#" "TMCS1133C1AQDVGR"
 			(at 354.33 156.21 0)
 			(effects
 				(font
@@ -12875,7 +12875,7 @@
 				(hide yes)
 			)
 		)
-		(property "Distributor#" "296-TMCS1133C2AQDVGRCT-ND"
+		(property "Distributor#" "296-TMCS1133C1AQDVGRCT-ND"
 			(at 354.33 156.21 0)
 			(effects
 				(font
@@ -12884,13 +12884,21 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC Part #" "C22445471"
+		(property "LCSC Part #" "C32266987"
 			(at 354.33 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Sensitivity" "25 mV/A"
+			(at 346.202 151.638 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "9"
