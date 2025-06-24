@@ -1,1 +1,53 @@
+# OS Files
 .DS_Store
+Thumbs.db
+Desktop.ini
+
+# KiCAD Backup Files
+*-backups/
+*.bak
+*-backup
+*.000
+*.tmp
+
+# KiCAD Cache and Temporary Files
+fp-info-cache
+*-cache.lib
+*-cache.dcm
+*.net
+*.dsn
+*.ses
+*-all.pos
+*-top.pos
+*-bottom.pos
+*-all.csv
+
+# KiCAD Auto-generated Files
+*.auto_save
+*-save.pro
+*-save.kicad_pcb
+*-save.kicad_sch
+
+# LTSpice Files
+*.raw
+*.log
+*.op.raw
+*.fft
+*.meas
+
+# Arduino/Firmware Build Files
+*.hex
+*.elf
+*.map
+build/
+libraries/
+
+# IDE Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Log Files
+*.log
