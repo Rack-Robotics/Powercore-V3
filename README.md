@@ -130,7 +130,6 @@ The device will NOT function unless power (5V) is supplied over USB to the micro
 | SERIAL COMMAND | DESCRIPTION |
 | --- | --- |
 | SEND_TELEMETRY | Send device status & parameters over serial from the device |
-| SET_ALL_PARAMETERS | Set output parameters for machining: #discharges, dutycycle, frequency, initiation voltage<br>Example: 'SET_ALL_PARAMETERS 0 0.10 5000 100' - Requests infinite discharges at 10% dutycycle 5,000 Hz 100 V<br>Example: 'SET_ALL_PARAMETERS 0 0.15 10000 150' - Requests infinite discharges at 15% dutycycle 10,000 Hz 150 V |
 | SET_ALL_PARAMETERS | Set output parameters for machining: #discharges, duty cycle, frequency, initiation voltage<br>Example: 'SET_ALL_PARAMETERS 0 0.10 5000 100' - Requests infinite discharges at 10% duty cycle 5,000 Hz 100 V<br>Example: 'SET_ALL_PARAMETERS 0 0.15 10000 150' - Requests infinite discharges at 15% duty cycle 10,000 Hz 150 V |
 | EDM_ISOFREQUENCY_MODE | Enter EDM Isofrequency mode |
 | EDGE_DETECTION_MODE | Enter Edge Detection mode |
