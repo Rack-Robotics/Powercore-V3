@@ -68,15 +68,15 @@ A high-efficiency power supply unit specifically designed for Electrical Dischar
 
 ## GENERAL DESCRIPTION
 
-The Powercore V3 provides precise control over machining parameters such as machining dutycycle, spark initiation voltage, and machining frequency. The Powercore V3 is optimized for both desktop scale wire EDM systems. Its open-source design ensures adaptability for scientific research, development, and custom EDM implementations.
+The Powercore V3 provides precise control over machining parameters such as machining duty cycle, spark initiation voltage, and machining frequency. The Powercore V3 is optimized for both desktop scale wire EDM systems. Its open-source design ensures adaptability for scientific research, development, and custom EDM implementations.
 
 ## SPECIFICATIONS
 
 | SPECIFICATION | Min | Max Value | UNIT |
 | --- | --- | --- | --- |
-| Power Supply Average Power | 10 | 300 | W |
-| Power Supply Voltage | 47.8 | 48.2 | V |
-| Power Supply Current | 0.625 | 6.25 | A |
+| Average Input Power | 10 | 300 | W |
+| Input Voltage | 47.8 | 48.2 | V |
+| Input Current | 0.625 | 6.25 | A |
 | Machining Duty Cycle | 1% | 15% | % (on/off) |
 | Machining Spark Initiation Voltage | 64 | 150 | V |
 | Machining Frequency | 5,000 | 20,000 | Hz |
@@ -131,9 +131,12 @@ The device will NOT function unless power (5V) is supplied over USB to the micro
 | --- | --- |
 | SEND_TELEMETRY | Send device status & parameters over serial from the device |
 | SET_ALL_PARAMETERS | Set output parameters for machining: #discharges, dutycycle, frequency, initiation voltage<br>Example: 'SET_ALL_PARAMETERS 0 0.10 5000 100' - Requests infinite discharges at 10% dutycycle 5,000 Hz 100 V<br>Example: 'SET_ALL_PARAMETERS 0 0.15 10000 150' - Requests infinite discharges at 15% dutycycle 10,000 Hz 150 V |
+| SET_ALL_PARAMETERS | Set output parameters for machining: #discharges, duty cycle, frequency, initiation voltage<br>Example: 'SET_ALL_PARAMETERS 0 0.10 5000 100' - Requests infinite discharges at 10% duty cycle 5,000 Hz 100 V<br>Example: 'SET_ALL_PARAMETERS 0 0.15 10000 150' - Requests infinite discharges at 15% duty cycle 10,000 Hz 150 V |
 | EDM_ISOFREQUENCY_MODE | Enter EDM Isofrequency mode |
 | EDGE_DETECTION_MODE | Enter Edge Detection mode |
 | RESET_DEVICE | Reset the device |
+
+Sending an unknown command will return a list of valid commands. 
 
 ## THEORY OF OPERATION
 
@@ -187,7 +190,7 @@ To enter iso-frequency mode for EDM, the enable port must be pulled high to 3.3 
 
 | PARAMETER | Min Value | DEFAULT VALUE | Max Value | Unit |
 | --- | --- | --- | --- | --- |
-| Machining Dutycycle | 1 | 10 | 15 | % |
+| Machining duty cycle | 1 | 10 | 15 | % |
 | Machining Frequency | 5000 | 10000 | 20000 | Hz |
 | Machining Spark Initiation Voltage | 64 | 80 | 150 | V |
 
