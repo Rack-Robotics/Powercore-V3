@@ -39,7 +39,7 @@ A high-efficiency power supply unit specifically designed for Electrical Dischar
 ## PSU HIGHLIGHTS
 
 1. Optimized for wire EDM
-2. High power efficiency (<300 W)
+2. Low power consumption (<300 W) & high efficiency
 3. Adjustable output parameters
    - Machining Duty Cycle: 1% - 15%
    - Machining Spark Initiation Voltage: 64V - 150V
