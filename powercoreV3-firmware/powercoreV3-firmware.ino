@@ -6,7 +6,7 @@
 //This firmware is for Powercore hardware revision E. 
 
 // Software Version
-const String SOFTWARE_VERSION = "0.4.3-alpha";
+const String SOFTWARE_VERSION = "1.0.0-beta";
 
 //=============================================================================
 // INCLUDES
@@ -1113,7 +1113,6 @@ void sendTelemetry() {
         case OPERATING:
             // Print the mode of operation
             Serial.print("OPERATING: ");
-            Serial.println(modeOfOperation);
             break;
         case IDLE:
             Serial.println("IDLE");
@@ -1285,11 +1284,11 @@ void processCommand(String command) {
         Serial.println("  SET_ALL_PARAMETERS <discharges> <dutyCycle> <frequency> <initVoltage> - Set all isopulse parameters at once");
         Serial.println("  EDGE_DETECTION_MODE - Enter edge detection mode");
         Serial.println("  RESET_DEVICE - Reset the device");
-        Serial.println("  SET_DPOT <position> - Set the boost converter digital potentiometer");
-        Serial.println("  READ_HVP_VOLTAGE - Read and average 10 samples from OUTPUT_VSENSE, apply scaling, and print result");
-        Serial.println("  UPDATE_DPOT_VOLTAGE_TABLE - Update the boost converter digital potentiometer voltage table");
-        Serial.println("  SET_DPOT_FROM_VTABLE <voltage> - Set DPOT to position for target voltage using voltage table");
-        Serial.println("  SET_FEEDBACK_DUTY <dutyCycle> - Set the EDM feedback duty cycle");
+        //Serial.println("  SET_DPOT <position> - Set the boost converter digital potentiometer");
+        //Serial.println("  READ_HVP_VOLTAGE - Read and average 10 samples from OUTPUT_VSENSE, apply scaling, and print result");
+        //Serial.println("  UPDATE_DPOT_VOLTAGE_TABLE - Update the boost converter digital potentiometer voltage table");
+        //Serial.println("  SET_DPOT_FROM_VTABLE <voltage> - Set DPOT to position for target voltage using voltage table");
+        //Serial.println("  SET_FEEDBACK_DUTY <dutyCycle> - Set the EDM feedback duty cycle");
         Serial.println("  EDM_ISOFREQUENCY_MODE - Enter EDM Isofrequency Mode");
     }
 }
