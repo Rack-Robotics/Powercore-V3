@@ -1479,7 +1479,7 @@ void EDMIsofrequencyMode() {
         if (dischargeSuccessRate > maxDischargeSuccessRateThreshold && allowPulseSkipping) {
             // Disable the output stage
             disableOutputStage();
-            // Using millis, wait for 10 ms
+            // Using millis, wait for 50 ms
             unsigned long startTime = millis();
             while (millis() - startTime < 50) {
                 // Do nothing
@@ -1536,7 +1536,7 @@ void setupOutputPWMForEDMIsofrequencyMode(double requestedMachiningDutyCycle, in
     // Disable the output stage
     disableOutputStage();
 
-    // Calculate the discharge rate calculation interval from the requested machining frequency and a constant multiplier (10)
+    // Calculate the discharge rate calculation interval from the requested machining frequency and a constant multiplier
     dischargeRateCalculationInterval_MICROS = (int)(dischargesPerCalculationInterval * (1000000 / requestedMachiningFrequency));
 
     // Set the high voltage phase to the desired voltage using the voltage lookup table
