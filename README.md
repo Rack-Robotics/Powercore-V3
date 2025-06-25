@@ -258,6 +258,10 @@ Normal behavior of the boost converter module. The MOSFET gate (blue trace) pres
 
 ![Powercore V3 Waveform 5](images/powercore-v3-waveform-05.png)
 
+Startup behavior of device. Two seconds are required for inrush protection and serial communication initiation. Subsequently, the boost-converter and output voltage sensor collaborate to create the lookup table for the I2C digital potentiometer. Once the lookup table is constructed, the boost converter is set to its default 80V setting.
+
+![Powercore V3 Waveform 5](images/powercore-v3-waveform-06.png)
+
 ## LICENSE 
 The Powercore V3 2025 by Rack Robotics, Inc. is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0).
 
