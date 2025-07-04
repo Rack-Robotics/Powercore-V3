@@ -83,7 +83,7 @@ The Powercore V3 provides precise control over machining parameters such as mach
 | Machining Current (1) | 40 | 70 | A |
 | PWM Feedback Duty Cycle | 0 | 100 | % |
 | PWM Feedback Voltage | 0 | 3.3 | V |
-| PWM Feedback Frequency  | ———————— | 10,000 | Hz |
+| PWM Feedback Frequency  | — | 10,000 | Hz |
 | PWM Feedback Output Resistance to GND | 9,990 | 1,010 | Ohms |
 | Enable Input Voltage | 3 | 3.5 | V |
 | Enable Input Impedance | 9,990 | 1,010 | Ohms |
@@ -108,11 +108,11 @@ The Powercore V3 provides precise control over machining parameters such as mach
 
 ### POWER INPUT CONNECTOR
 
-Input power is supplied to the device via a 2-position lever-action Wago connector, which accepts 16 AWG conductors. 48VDC Must be connected to the device before 5V over USB-micro. If power is supplied to the RP2040 microcontroller, before 48VDC is supplied to the PSU, the microcontroller will enter fault-mode and not function.
+Input power is supplied to the device via a 2-position lever-action Wago connector, which accepts 16 AWG conductors. 48VDC must be connected to the device before 5V over USB-micro. If power is supplied to the RP2040 microcontroller before 48VDC is supplied to the PSU, the microcontroller will enter fault-mode and not function.
 
 ### POWER OUTPUT CONNECTOR 
 
-Power is outputted from the device via a 2-position lever-action Wago connector, which accepts 16 AWG stranded conductors. The output cable should be twisted. The output cable must be either shielded/grounded, or be contained within a shielded/grounded machine enclosure.
+The output of the device is a 2-position lever-action Wago connector, which accepts 16 AWG stranded conductors. The output cable should be twisted, and shorter than 1 meter. The output cable must be either shielded/grounded, or be contained within a shielded/grounded machine enclosure.
 
 ### DIGITAL INTERFACE CONNECTOR 
 
@@ -125,7 +125,7 @@ A 4-position JST-XH header enables communication with external controllers. The 
 
 The Powercore V3 exposes the USB-micro connector of the microcontroller module (Raspberry Pi 2040 Pico) for configuration of the machining parameters and the sharing of PSU telemetry. The default baud rate is 115200.
 
-The device will NOT function unless power (5V) is supplied over USB to the micro-controller module through the USB-micro connector, and only if 48VDC is already connected to the power input wago.
+The device will NOT function unless power (5V) is supplied over USB to the micro-controller module through the USB-micro connector, and only if 48VDC is already connected to the power input Wago.
 
 | SERIAL COMMAND | DESCRIPTION |
 | --- | --- |
@@ -163,9 +163,9 @@ Example of normal startup behavior over serial:
 
 ```
 Setting DPOT to minimum position...
-Waiting for voltage to stabalize...
+Waiting for voltage to stabilize...
 Reading voltages for DPOT lookup table...
-Boost Converter Digital Potentiometer Voltage Table: 
+Boost Converter Digital Potentiometer Voltage Table:
 0: 51
 1: 52
 ...
@@ -173,7 +173,7 @@ Boost Converter Digital Potentiometer Voltage Table:
 110: 166
 ```
 
-If boost-converter lookup table construction is successful, the status LED on the Pico module will turn solid-green, and "Setup complete" will be sent over serial from the Pico. By default, the device enters IDLE mode next.
+If boost converter lookup table construction is successful, the status LED on the Pico module will turn solid green, and "Setup complete" will be sent over serial from the Pico. By default, the device enters IDLE mode next.
 
 ### IDLE MODE
 
@@ -208,9 +208,9 @@ The minimum application example of the device:
 | Input / Output | Connection Requirements |
 | --- | --- |
 | Power Input | Connected to 48V, 300W PSU via 16 AWG stranded wire |
-| USB-MICRO | Connected to USB PSU or PC. Note: The 48V supply must be connected first, before the USB-micro, or else the device will enter fault mode. This is because the pico-module boots up, and does not sense input power is supplied to the device. |
+| USB-MICRO | Connected to USB PSU or PC. Note: The 48V supply must be connected first, before the USB-micro, or else the device will enter fault mode. This is because the Pico module boots up and does not sense that input power is supplied to the device. |
 | Enable Port | Pulled high to 3.3V, after the device is connected to 48V and USB power. |
-| Power Output | Positive (+) electrode is connected to work piece, and negative (-) electrode is connected to the cutting electrode (wire or die) |
+| Power Output | Positive (+) electrode is connected to workpiece, and negative (-) electrode is connected to the cutting electrode (wire or die) |
 
 ## EMC & EMI
 
@@ -242,7 +242,7 @@ Normal behavior of output stage switches during EDM iso-frequency mode. The enab
 ![Powercore V3 Waveform 1](images/powercore-v3-waveform-01.png)
 
 ### Gap Voltage with Electrodes Separated
-Normal behavior of output stages during EDM iso-frequency mode, with the electrodes separated by several millimeters under distilled water. The positive (+) electrode (red trace) shows the change in gap voltage when the output capacitor is charged, and then slowly discharged through the water.
+Normal behavior of output stages during EDM iso-frequency mode, with the electrodes separated by several millimeters under distilled water. The positive (+) electrode (red trace) shows the change in gap voltage when the output capacitor is charged and then slowly discharged through the water.
 
 ![Powercore V3 Waveform 2](images/powercore-v3-waveform-02.png)
 
@@ -258,7 +258,7 @@ Normal behavior of the boost converter module. The MOSFET gate (blue trace) pres
 
 ![Powercore V3 Waveform 5](images/powercore-v3-waveform-05.png)
 
-Startup behavior of device. Two seconds are required for inrush protection and serial communication initiation. Subsequently, the boost-converter and output voltage sensor collaborate to create the lookup table for the I2C digital potentiometer. Once the lookup table is constructed, the boost converter is set to its default 80V setting.
+Startup behavior of device. Two seconds are required for inrush protection and serial communication initiation. Subsequently, the boost converter and output voltage sensor collaborate to create the lookup table for the I2C digital potentiometer. Once the lookup table is constructed, the boost converter is set to its default 80V setting.
 
 ![Powercore V3 Waveform 5](images/powercore-v3-waveform-06.png)
 
@@ -276,7 +276,7 @@ The Powercore V3 2025 by Rack Robotics, Inc. is licensed under the Creative Comm
 - **No additional restrictions** — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits
 
 ### Notices:
-You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation .
+You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable exception or limitation.
 
 No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as publicity, privacy, or moral rights may limit how you use the material.
 
