@@ -180,7 +180,7 @@ Output remains in high-impedance state until enable input is asserted (3.3V). No
 
 ### ISO-FREQUENCY MODE
 
-Fixed-frequency discharge mode. Default mode or activated via 'EDM_ISOFREQUENCY_MODE' command. //AI, note here that the default parameters are 10KHz 10% duty cycle and 80V. Enable input must be asserted (3.3V) to begin operation.
+Fixed-frequency discharge mode. Default mode or activated via 'EDM_ISOFREQUENCY_MODE' command. Enable input must be asserted (3.3V) to begin operation.
 
 **ISO-FREQUENCY MODE PARAMETERS**
 

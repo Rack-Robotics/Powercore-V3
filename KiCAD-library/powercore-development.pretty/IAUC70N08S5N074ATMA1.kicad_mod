@@ -526,7 +526,7 @@
 		(layers "F.Cu")
 		(uuid "d780847e-269e-40c5-8866-efffee805f62")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/IAUC70N08S5N074ATMA1.step"
+	    (model "../3D-models/IAUC70N08S5N074ATMA1.step"
 		(offset
 			(xyz 0 0 0)
 		)

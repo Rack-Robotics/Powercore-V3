@@ -291,7 +291,7 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "65e6656b-26fa-473e-92a5-a7e8dabb099e")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/PHA225.step"
+	    (model "../3D-models/226TTA350M.step"
 		(offset
 			(xyz 0 -21 0.5)
 		)

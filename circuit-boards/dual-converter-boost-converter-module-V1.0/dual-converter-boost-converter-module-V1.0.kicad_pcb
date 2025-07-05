@@ -10045,7 +10045,7 @@
 			(uuid "966cc199-2838-455f-91e3-d89cae14c171")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/STN3N40K3.step"
+		(model "../../KiCAD-library/3D-models/STN3N40K3.step"
 			(offset
 				(xyz 0 0 0)
 			)
@@ -13753,7 +13753,7 @@
 			(uuid "43d142df-2117-490f-b487-e16e8b2eaa21")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/226TTA350M.step"
+		(model "../../KiCAD-library/3D-models/226TTA350M.step"
 			(offset
 				(xyz 19.5 0 0.5)
 			)

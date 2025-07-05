@@ -3618,7 +3618,7 @@
 		(solder_mask_margin 0.102)
 		(uuid "bdb16131-af27-4620-9d17-1519f4cf9598")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/SC0915.step"
+	    (model "../3D-models/SC0915.step"
 		(offset
 			(xyz 0 0 0)
 		)

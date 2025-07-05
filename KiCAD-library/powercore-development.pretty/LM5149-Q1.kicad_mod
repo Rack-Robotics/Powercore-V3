@@ -643,7 +643,7 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "689a1e3b-6627-46df-b60c-19c0212e4fc3")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/LM5149-Q1.stp"
+	    (model "../3D-models/LM5149-Q1.stp"
 		(offset
 			(xyz 0 0 0)
 		)

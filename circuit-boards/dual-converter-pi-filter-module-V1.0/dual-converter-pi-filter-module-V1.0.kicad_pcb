@@ -3728,7 +3728,7 @@
 			(uuid "17896795-86d6-47bf-ae04-258342eeef1f")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/PHA225.step"
+		(model "../../KiCAD-library/3D-models/PHA225.step"
 			(offset
 				(xyz 0 -21 0.5)
 			)
@@ -7709,7 +7709,7 @@
 			(uuid "55e528f1-1d22-4d2f-8b42-a325342e7363")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/PHA225.step"
+		(model "../../KiCAD-library/3D-models/PHA225.step"
 			(offset
 				(xyz 0 -21 0.5)
 			)
@@ -8917,7 +8917,7 @@
 			(uuid "1d32abce-497a-420f-a73f-a406b10be6fc")
 		)
 		(embedded_fonts no)
-		(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/SRP1245A series.stp"
+		(model "../../KiCAD-library/3D-models/SRP1245A series.stp"
 			(offset
 				(xyz 0 0 0)
 			)

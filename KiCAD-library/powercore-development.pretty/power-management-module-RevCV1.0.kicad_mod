@@ -1258,7 +1258,7 @@
 		(remove_unused_layers no)
 		(uuid "64ccc8e9-6a48-4692-80c4-584b53ce6d89")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/power-management-module-revCV1.0.step"
+	    (model "../3D-models/power-management-module-V1.0.step"
 		(offset
 			(xyz -46 62 0)
 		)

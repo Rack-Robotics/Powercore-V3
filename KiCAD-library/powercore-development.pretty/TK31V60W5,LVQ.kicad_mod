@@ -522,7 +522,7 @@
 		(layers "F.Cu" "F.Mask")
 		(uuid "a09be174-a481-4690-be8c-57cba28037e5")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/TK31V60W5,LVQ.step"
+	    (model "../3D-models/TK31V60W5,LVQ.step"
 		(offset
 			(xyz 0 0 0)
 		)

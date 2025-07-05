@@ -277,7 +277,7 @@
 		(roundrect_rratio 0.138889)
 		(uuid "1e74c877-1362-43a2-b0df-8110c7ba0d7a")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/S4B-XH-SM4-TB.STEP"
+	    (model "../3D-models/S4B-XH-SM4-TB.STEP"
 		(offset
 			(xyz 0 -3.5 0)
 		)

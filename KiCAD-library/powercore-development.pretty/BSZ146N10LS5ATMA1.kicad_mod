@@ -723,7 +723,7 @@
 		)
 		(uuid "32d3290e-429f-4cf7-a3f8-cdd121f14c2b")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/BSZ146N10LS5ATMA1.step"
+	    (model "../3D-models/BSZ146N10LS5ATMA1.step"
 		(offset
 			(xyz 0 0 0)
 		)

@@ -442,7 +442,7 @@
 		(layers "F.Cu" "F.Paste" "F.Mask")
 		(uuid "f656fcef-b902-4df2-952a-bf560ea141b4")
 	)
-	(model "D:/Rack Robotics GitHub/Powercore-Development/KiCAD-library/3D-models/SRP1245A series.stp"
+	    (model "../3D-models/SRP1245A series.stp"
 		(offset
 			(xyz 0 0 0)
 		)
