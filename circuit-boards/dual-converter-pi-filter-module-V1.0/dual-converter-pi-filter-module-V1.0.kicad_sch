@@ -6,8 +6,8 @@
 	(paper "User" 280 250)
 	(title_block
 		(title "dual-converter-pi-filter-module")
-		(date "2025-05-21")
-		(rev "F")
+		(date "2025-07-29")
+		(rev "G")
 		(company "Rack Robotics, Inc.")
 		(comment 1 "For High-Current Phase")
 	)

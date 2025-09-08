@@ -7,7 +7,7 @@
 	(title_block
 		(title "Power Mangement Module")
 		(date "2025-05-21")
-		(rev "F")
+		(rev "G")
 		(company "Rack Robotics, Inc.")
 	)
 	(lib_symbols
@@ -1740,12 +1740,6 @@
 		(uuid "dde7fc02-7c9e-431d-91d3-5c965c071e99")
 	)
 	(junction
-		(at 287.02 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "06f811d8-2b6d-49f7-ae3c-e72213be9da6")
-	)
-	(junction
 		(at 355.6 82.55)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2080,12 +2074,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "beeeaccc-9f46-40d1-9261-27b3e17a75de")
-	)
-	(junction
-		(at 312.42 63.5)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c06ea8b9-da89-4e75-b2c5-0c5b6737c31d")
 	)
 	(junction
 		(at 285.75 203.2)
@@ -2495,16 +2483,6 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 63.5) (xy 294.64 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1cc42305-d560-4eac-8f50-9ceb9e17c4ec")
-	)
-	(wire
-		(pts
 			(xy 177.8 59.69) (xy 182.88 59.69)
 		)
 		(stroke
@@ -2525,7 +2503,7 @@
 	)
 	(wire
 		(pts
-			(xy 182.88 63.5) (xy 287.02 63.5)
+			(xy 182.88 63.5) (xy 294.64 63.5)
 		)
 		(stroke
 			(width 0)
@@ -3185,16 +3163,6 @@
 	)
 	(wire
 		(pts
-			(xy 302.26 63.5) (xy 312.42 63.5)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6af55900-38b1-4be6-be98-9bf03e67df83")
-	)
-	(wire
-		(pts
 			(xy 311.15 181.61) (xy 311.15 190.5)
 		)
 		(stroke
@@ -3285,7 +3253,7 @@
 	)
 	(wire
 		(pts
-			(xy 336.55 63.5) (xy 312.42 63.5)
+			(xy 302.26 63.5) (xy 336.55 63.5)
 		)
 		(stroke
 			(width 0)
@@ -3442,16 +3410,6 @@
 			(type default)
 		)
 		(uuid "82d4108e-6067-4968-b916-25d9b5595532")
-	)
-	(wire
-		(pts
-			(xy 312.42 63.5) (xy 312.42 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "844d4e04-cfa8-409c-ae4c-10302b59678b")
 	)
 	(wire
 		(pts
@@ -4155,16 +4113,6 @@
 	)
 	(wire
 		(pts
-			(xy 287.02 63.5) (xy 287.02 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e5c0c2a0-528c-4fda-b41e-5c4c353f95ef")
-	)
-	(wire
-		(pts
 			(xy 80.01 86.36) (xy 80.01 87.63)
 		)
 		(stroke
@@ -4739,6 +4687,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 298.45 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "58b5ce14-c198-49a5-8cde-a07c082b1f3d")
 		)
@@ -4764,7 +4720,7 @@
 		(dnp no)
 		(uuid "0b76fe79-0656-4154-a599-feb7d6902e27")
 		(property "Reference" "R6"
-			(at 45.974 80.772 0)
+			(at 44.958 80.772 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4790,7 +4746,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 57.15 82.55 0)
 			(effects
 				(font
@@ -4799,7 +4755,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film"
+		(property "Description" "100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film"
 			(at 57.15 82.55 0)
 			(effects
 				(font
@@ -4808,7 +4764,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Vishay Intertech"
 			(at 57.15 82.55 0)
 			(effects
 				(font
@@ -4817,7 +4773,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer#" "RC0603FR-07100KL"
+		(property "Manufacturer#" "CRCW0603100KFKEA"
 			(at 57.15 82.55 0)
 			(effects
 				(font
@@ -4835,7 +4791,7 @@
 				(hide yes)
 			)
 		)
-		(property "Distributor#" "311-100KHRCT-ND"
+		(property "Distributor#" "CRCW0603100KFKEA"
 			(at 57.15 82.55 0)
 			(effects
 				(font
@@ -4845,14 +4801,14 @@
 			)
 		)
 		(property "Role" "R_PULL"
-			(at 49.53 82.804 0)
+			(at 48.514 82.804 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Power" "0.1 W"
+		(property "Power" "0.1W"
 			(at 52.578 84.836 0)
 			(effects
 				(font
@@ -4861,28 +4817,36 @@
 			)
 		)
 		(property "Tolerance" "1%"
-			(at 47.498 84.836 0)
+			(at 46.228 84.836 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Dielectric" ""
-			(at 57.15 82.55 0)
+		(property "Max Voltage" "75V"
+			(at 53.594 82.804 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "LCSC Part #" "C14675"
+		(property "LCSC Part #" "C844916"
 			(at 57.15 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 57.15 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -5031,6 +4995,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 95.25 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "723a5476-13e9-4475-af9c-5ace43787b97")
 		)
@@ -5154,6 +5126,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 57.15 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 57.15 146.05 0)
 			(effects
 				(font
@@ -5307,6 +5287,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 381 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "73bc60cb-a6e6-49f8-b4a4-815b6b1e8775")
 		)
@@ -5451,6 +5439,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 406.4 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -5599,6 +5595,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 285.75 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "761a4d9a-20b0-4d83-a34a-296008add8ef")
 		)
@@ -5735,6 +5739,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 120.65 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -5949,6 +5961,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 381 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "c7b3fab9-9008-4418-81a2-bdc34e9cfbe5")
 		)
@@ -6093,6 +6113,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 323.85 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -6282,6 +6310,14 @@
 				)
 			)
 		)
+		(property "Max Current" ""
+			(at 38.1 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ff81c5c5-04be-44da-8545-84d4ab932319")
 		)
@@ -6425,6 +6461,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 95.25 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a90d3a08-f8e1-4d18-a090-dcdc5b7380aa")
 		)
@@ -6540,6 +6584,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 44.45 0)
 			(effects
 				(font
@@ -6690,6 +6742,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 342.9 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7b61c49d-80ae-4e47-9b70-99d4be0c52a9")
 		)
@@ -6805,6 +6865,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 25.4 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 25.4 267.97 0)
 			(effects
 				(font
@@ -7151,6 +7219,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 109.22 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "fb4f38d6-a3e0-4165-952c-4f11d4678923")
 		)
@@ -7266,6 +7342,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 63.5 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 63.5 267.97 0)
 			(effects
 				(font
@@ -7481,6 +7565,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 95.25 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "efce893a-bb60-4e79-81af-2ccd5651d0d3")
 		)
@@ -7661,6 +7753,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 137.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 137.16 0)
 			(effects
 				(font
@@ -7876,6 +7976,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 406.4 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "51c39f57-6b2f-45da-b9f3-fb74e0a035f2")
 		)
@@ -8085,6 +8193,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 342.9 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -8298,6 +8414,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 381 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "7eccfec5-2e6f-4397-b0e2-46da36d47622")
 		)
@@ -8442,6 +8566,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 311.15 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -8590,6 +8722,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 285.75 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "552e7ff5-97e1-4b66-9a8b-d1be30d8a10e")
 		)
@@ -8736,6 +8876,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 368.3 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6c203d1c-831a-4e00-9205-84a366f9a600")
 		)
@@ -8769,7 +8917,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SMCJ60A"
+		(property "Value" "SMCJ60A-E3/57T"
 			(at 224.79 39.3699 90)
 			(effects
 				(font
@@ -8787,7 +8935,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.bourns.com/docs/Product-Datasheets/SMCJ.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/88394/smcj.pdf"
 			(at 222.25 38.1 0)
 			(effects
 				(font
@@ -8796,7 +8944,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "96.8V Clamp 15.5A Ipp Tvs Diode Surface Mount DO-214AB (SMC)"
+		(property "Description" "96.8V Clamp 15.5A Ipp Tvs Diode Surface Mount DO-214AB (SMCJ)"
 			(at 222.25 38.1 0)
 			(effects
 				(font
@@ -8805,7 +8953,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Bourns Inc."
+		(property "Manufacturer" "Vishay General Semiconductor - Diodes Division"
 			(at 222.25 38.1 0)
 			(effects
 				(font
@@ -8814,7 +8962,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer#" "SMCJ60A"
+		(property "Manufacturer#" "SMCJ60A-E3/57T"
 			(at 222.25 38.1 0)
 			(effects
 				(font
@@ -8832,7 +8980,7 @@
 				(hide yes)
 			)
 		)
-		(property "Distributor#" "SMCJ60ABCT-ND"
+		(property "Distributor#" "SMCJ60A-E3/57TGICT-ND"
 			(at 222.25 38.1 0)
 			(effects
 				(font
@@ -8849,13 +8997,21 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C2943780"
+		(property "LCSC Part #" "C1975272"
 			(at 222.25 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 222.25 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -9004,6 +9160,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 80.01 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "d26a8448-eac2-41ad-94f9-1c6b874fec9d")
 		)
@@ -9148,6 +9312,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 298.45 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -9296,6 +9468,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 311.15 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "033517d1-a984-4ac0-96f3-0957bff17d16")
 		)
@@ -9418,6 +9598,14 @@
 				)
 			)
 		)
+		(property "Max Current" ""
+			(at 38.1 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "2f48d916-66f9-46ac-b9e3-728985afbc41")
 		)
@@ -9425,125 +9613,6 @@
 			(project "dual-converter-power-management-module"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
 					(reference "TP3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 312.42 64.77 180)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "67e3c7c5-8b4b-4ade-81bf-118674436138")
-		(property "Reference" "TP9"
-			(at 310.642 71.374 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 307.848 73.914 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 307.34 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "NULL"
-			(at 307.34 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "NULL"
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "NULL"
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer#" "NULL"
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "NULL"
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor#" "NULL"
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Role" "NULL"
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Dielectric" ""
-			(at 312.42 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "bf63e309-4a74-44fb-9e1c-3a83e12bde94")
-		)
-		(instances
-			(project "dual-converter-power-management-module-RevCV1.1"
-				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "TP9")
 					(unit 1)
 				)
 			)
@@ -9678,6 +9747,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 355.6 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -9826,6 +9903,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 298.45 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "f4d4874a-a2fe-43b2-a5aa-fc0d895a8093")
 		)
@@ -9972,6 +10057,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 285.75 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "eb93606a-0658-439d-88ff-6f55fa7f9df4")
 		)
@@ -10087,6 +10180,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 72.39 0)
 			(effects
 				(font
@@ -10237,6 +10338,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 285.75 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "61e3c04f-a62f-4bd3-b029-7595fca06086")
 		)
@@ -10381,6 +10490,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 381 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -10529,6 +10646,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 298.45 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "9d311769-d413-4cf7-80cc-fe9de19801d3")
 		)
@@ -10644,6 +10769,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 41.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 41.91 0)
 			(effects
 				(font
@@ -10770,6 +10903,14 @@
 				)
 			)
 		)
+		(property "Max Current" ""
+			(at 38.1 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "a0454124-6330-42a7-88c5-fe75703f6aae")
 		)
@@ -10882,6 +11023,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 139.7 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 139.7 0)
 			(effects
 				(font
@@ -11148,6 +11297,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 132.08 46.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "fc7de477-5954-4f37-a3df-a26714ecf6ed")
 		)
@@ -11309,6 +11466,14 @@
 				)
 			)
 		)
+		(property "Max Current" ""
+			(at 38.1 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "4a911f39-7f14-4c8c-a859-61ad29558621")
 		)
@@ -11452,6 +11617,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 311.15 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "088bd822-8347-4457-9b71-b3228c262a0a")
 		)
@@ -11567,6 +11740,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 59.69 0)
 			(effects
 				(font
@@ -11847,6 +12028,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 355.6 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "13872283-17cf-4a35-870d-89bb5bee06f1")
 		)
@@ -12058,6 +12247,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 95.25 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "15fc06f0-ef43-4df7-b25b-61d0332aa9b5")
 		)
@@ -12202,6 +12399,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 342.9 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -12350,6 +12555,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 368.3 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "50ab2d52-54eb-44de-9840-f2ddfb9e5a0d")
 		)
@@ -12465,6 +12678,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 67.31 0)
 			(effects
 				(font
@@ -12615,6 +12836,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 355.6 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "ec71d807-788a-4e06-bea0-c44bf0d4d478")
 		)
@@ -12759,6 +12988,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 342.9 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -12907,6 +13144,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 368.3 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "a180886f-17ae-436a-8d2e-b7030f1791c3")
 		)
@@ -13038,6 +13283,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 57.15 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "02d46ca4-ea10-4d9b-b068-c7c2ed7a1a5e")
 		)
@@ -13089,7 +13342,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 69.85 82.55 0)
 			(effects
 				(font
@@ -13098,7 +13351,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film"
+		(property "Description" "100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film"
 			(at 69.85 82.55 0)
 			(effects
 				(font
@@ -13107,7 +13360,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Vishay Intertech"
 			(at 69.85 82.55 0)
 			(effects
 				(font
@@ -13116,7 +13369,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer#" "RC0603FR-07100KL"
+		(property "Manufacturer#" "CRCW0603100KFKEA"
 			(at 69.85 82.55 0)
 			(effects
 				(font
@@ -13134,7 +13387,7 @@
 				(hide yes)
 			)
 		)
-		(property "Distributor#" "311-100KHRCT-ND"
+		(property "Distributor#" "CRCW0603100KFKEA"
 			(at 69.85 82.55 0)
 			(effects
 				(font
@@ -13175,13 +13428,29 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C14675"
+		(property "Max Voltage" "75V"
+			(at 67.31 82.804 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C844916"
 			(at 69.85 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 69.85 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -13395,6 +13664,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 355.6 177.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "75d62425-8f20-434f-a915-b6e75e475813")
 		)
@@ -13405,125 +13682,6 @@
 			(project "dual-converter-power-management-module"
 				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
 					(reference "C24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 287.02 64.77 180)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "c704513b-81a0-4417-9ead-86138f899a42")
-		(property "Reference" "TP8"
-			(at 285.242 71.374 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 282.448 73.914 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 281.94 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "NULL"
-			(at 281.94 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "NULL"
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "NULL"
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer#" "NULL"
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor" "NULL"
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Distributor#" "NULL"
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Role" "NULL"
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Dielectric" ""
-			(at 287.02 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b9bbd79c-8d3a-48c8-a630-4615b785d138")
-		)
-		(instances
-			(project ""
-				(path "/230efb11-d2b5-477f-8cbb-0bfc1a8259a4"
-					(reference "TP8")
 					(unit 1)
 				)
 			)
@@ -13658,6 +13816,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 323.85 215.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -13806,6 +13972,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 323.85 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "2"
 			(uuid "6a799ee9-79fe-40f6-8e8a-c985348e5c89")
 		)
@@ -13928,6 +14102,14 @@
 				)
 			)
 		)
+		(property "Max Current" ""
+			(at 50.8 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "40b4eb4d-a4ad-4eb0-b464-1a616be791b4")
 		)
@@ -13976,7 +14158,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
+		(property "Datasheet" "https://www.vishay.com/docs/20035/dcrcwe3.pdf"
 			(at 82.55 44.45 0)
 			(effects
 				(font
@@ -13985,7 +14167,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film"
+		(property "Description" "100 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film"
 			(at 82.55 44.45 0)
 			(effects
 				(font
@@ -13994,7 +14176,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "YAGEO"
+		(property "Manufacturer" "Vishay Intertech"
 			(at 82.55 44.45 0)
 			(effects
 				(font
@@ -14003,7 +14185,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer#" "RC0603FR-07100KL"
+		(property "Manufacturer#" "CRCW0603100KFKEA"
 			(at 82.55 44.45 0)
 			(effects
 				(font
@@ -14021,7 +14203,7 @@
 				(hide yes)
 			)
 		)
-		(property "Distributor#" "311-100KHRCT-ND"
+		(property "Distributor#" "CRCW0603100KFKEA"
 			(at 82.55 44.45 0)
 			(effects
 				(font
@@ -14062,13 +14244,29 @@
 				)
 			)
 		)
-		(property "LCSC Part #" "C14675"
+		(property "Max Voltage" "75V"
+			(at 80.01 44.704 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part #" "C844916"
 			(at 82.55 44.45 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 82.55 44.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -14215,6 +14413,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 323.85 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -14397,6 +14603,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 74.93 0)
 			(effects
 				(font
@@ -14625,6 +14839,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 298.45 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "1"
@@ -14904,6 +15126,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 406.4 196.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "70924ffa-1d65-4a4b-8de5-e6cfa386885b")
 		)
@@ -15048,6 +15278,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 311.15 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"
@@ -15196,6 +15434,14 @@
 				(hide yes)
 			)
 		)
+		(property "Max Current" ""
+			(at 406.4 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
 		(pin "1"
 			(uuid "ea676d56-0149-4e7e-9773-c834c359781c")
 		)
@@ -15311,6 +15557,14 @@
 			)
 		)
 		(property "Dielectric" ""
+			(at 38.1 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Max Current" ""
 			(at 38.1 57.15 0)
 			(effects
 				(font
@@ -15459,6 +15713,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "Max Current" ""
+			(at 368.3 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "2"

@@ -6,8 +6,8 @@
 	(paper "A3")
 	(title_block
 		(title "Dual Converter Motherboard")
-		(date "2025-06-02")
-		(rev "F")
+		(date "2025-07-29")
+		(rev "G")
 		(company "Rack Robotics, Inc.")
 	)
 	(lib_symbols
