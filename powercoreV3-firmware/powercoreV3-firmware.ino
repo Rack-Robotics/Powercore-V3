@@ -2,10 +2,10 @@
 //Powercore Development Firmware
 //For use with Rarduino-Pico Plugin by EarlePhilhower
 //Copyright (c) 2025 Rack Robotics, Inc. All rights reserved.
-//This firmware is for Powercore hardware revision F. 
+//This firmware is for Powercore hardware revision F & G
 
 // Software Version
-const String SOFTWARE_VERSION = "1.0.0-beta";
+const String SOFTWARE_VERSION = "1.1.0-beta";
 
 //=============================================================================
 // INCLUDES
@@ -70,10 +70,12 @@ struct PWMOutput {
 //=============================================================================
 // Digital Input/Output Pins
 const int EDM_ENABLE              =   2;                // Digital input
-const int EDM_FEEDBACK            =   3;                // PWM output for communicating with external motion controller
+const int EDM_FEEDBACK            =   3;                // PWM output for communicating with external motion controller. 
+                                                        // (0% duty cycle = at max power setpoint | Decrease motion feedrate, 100% duty cycle = no power consumption | Increase motion feedrate)
+
 const int OUTPUT_OVERCURRENT      =   12;               // Reports when detected current exceeds current limit threshold on output current sensor
-const int BUCK_POWER_GOOD         =   13;               // Reports when buck-converter module is providing power to system, active-LOW when fault is detected
-const int BUCK_ENABLE             =   14;               // Enables buck-controller on buck-converter-module
+const int BUCK_POWER_GOOD         =   13;               // UNUSED
+const int BUCK_ENABLE             =   14;               // UNUSED
 const int BUCK_ADJ_PWM            =   15;               // UNUSED
 
 const int I2C_SDA_PIN             =   16;               // I2C data pin
@@ -105,20 +107,40 @@ volatile double machiningDutyCycle = 0.10f;             // Duty cycle for machin
 volatile int machiningFrequency = 10000;                // Frequency in Hz
 volatile int machiningInitVoltage = 80;                 // Initiation voltage in volts
 
-// Discharge Success Rate Threshold
-volatile double maxDischargeSuccessRateThreshold = 0.80f; // Maximum discharge success rate threshold
+// Telemetry Flag
+const bool sendPeriodicTelemetryEnabled = true;             // If true, the device will send periodic telemetry over serial
 
-// Feature Flags
-const bool sendPeriodicTelemetryEnabled = true;         // If true, the device will send periodic telemetry over serial
-const bool allowPulseSkipping = true;                   // If true, the device will allow pulse skipping in order to attempt to clear/reduce faults
+// Discharge Success Rate Pulse Skipping Feature
+const bool allowDischargeSuccessRatePulseSkipping = true;   // If true, the device will pulse skip if the discharge success rate exceeds the maximum discharge success rate threshold
+volatile double maxDischargeSuccessRateThreshold = 0.800f;  // Percentage of concurrent-discharges allowed before pulse skipping is triggered. Used to prevent short-circuiting.
+                                                            // Can range from 0.000 to 1.000.
+volatile int dischargesPerCalculationInterval = 10;         // Number of discharges per calculation interval for discharge success rate calculation
+
+// Power Setpoint Pulse Skipping
+const bool allowPowerSetpointPulseSkipping = true;          // If true, the device will pulse skip if the average input power exceeds the maximum input power setpoint
+const float MAX_INPUT_POWER_SETPOINT_WATTS = 75.0f;         // The maximum power consumption of the device, to prevent overheating. 
+                                                            // The EDM_FEEDBACK pin communicates power consumption to external motion controller via PWM signal
+                                                            // (0% duty cycle = at max power setpoint, decrease feedrate | 100% duty cycle = no power consumption, increase feedrate)
 
 // Boost Converter Module Globals 
 const int MIN_HIGH_VOLTAGE_PHASE_VOLTS = 64;            // Minimum safe high voltage phase voltage in volts
-const int MAX_HIGH_VOLTAGE_PHASE_VOLTS = 150;           // Maximum safe high voltage phase voltage in volts
+const int MAX_HIGH_VOLTAGE_PHASE_VOLTS = 100;           // Maximum safe high voltage phase voltage in volts
 const int MIN_BOOST_CONVERTER_DPOT_POSITION = 0;        // Minimum position of the digital potentiometer on the boost converter module for safe operation
 const int MAX_BOOST_CONVERTER_DPOT_POSITION = 110;      // Maximum position of the digital potentiometer on the boost converter module for safe operation
 const int DEFAULT_BOOST_CONVERTER_DPOT_POSITION = 1;    // Default position of the digital potentiometer on the boost converter module
 const int BOOST_CONVERTER_RAMP_SPACING_MS = 10;         // Spacing between steps in the digital potentiometer, in milliseconds
+
+//  Parameter Limits
+const float MAX_SAFE_INPUT_CURRENT = 7.3f;                      // Maximum safe input current in amps
+const float MIN_DUTY_CYCLE = 0.01f;                             // Minimum duty cycle of machining
+const float MAX_DUTY_CYCLE = 0.12f;                             // Maximum duty cycle of machining
+const float MIN_MACHINING_FREQUENCY_HZ = 5000.0f;               // Minimum machining frequency in Hz
+const float MAX_MACHINING_FREQUENCY_HZ = 10000.0f;              // Maximum machining frequency in Hz
+const float MIN_ON_TIME_MICROS = 1.000f;                        // Minimum on-time in microseconds
+const float MAX_ON_TIME_MICROS = 25.000f;                       // Maximum on-time in microseconds
+const float MIN_OFF_TIME_MICROS = 88.000f;                      // Minimum off-time in microseconds
+const float MIN_INIT_VOLTAGE = MIN_HIGH_VOLTAGE_PHASE_VOLTS;    // Minimum initiation voltage (exclusive)
+const float MAX_INIT_VOLTAGE = MAX_HIGH_VOLTAGE_PHASE_VOLTS;    // Maximum initiation voltage in volts
 
 // Look up table for boost converter module digital potentiometer voltages
 volatile int dpotVoltageTable[MAX_BOOST_CONVERTER_DPOT_POSITION + 1];
@@ -131,9 +153,9 @@ volatile int dpotVoltageTable[MAX_BOOST_CONVERTER_DPOT_POSITION + 1];
 
 // System Configuration Constants
 const int ADC_RESOLUTION_BITS = 12;                     // ADC resolution in bits (0-4095)
-const uint32_t PWM_BASE_CLOCK_FREQ = 200000000;         // Base clock frequency for PWM (200MHz)
+const uint32_t PWM_BASE_CLOCK_FREQ = 133000000;         // Base clock frequency for PWM (133MHz)
 const int MAX_PARAMETERS = 4;                           // Maximum number of parameters for command processing
-volatile uint32_t edmFeedbackPwmFrequency_Hz = 10000;   // Frequency for EDM_FEEDBACK PWM in Hz
+volatile uint32_t edmFeedbackPwmFrequency_Hz = 1000;    // Frequency for EDM_FEEDBACK PWM in Hz (1000 Hz)
 const uint16_t EDM_FEEDBACK_PWM_CLOCK_DIVIDER = 10;     // Set to 10 to fit within uint8_t
 
 // Timing Constants
@@ -143,18 +165,6 @@ const int serialInitializationBlinkInterval_MS = 500;   // Interval for serial i
 const int periodicTelemetryInterval_MS = 1000;          // Interval for sending periodic telemetry (1000 ms)
 volatile int dischargeRateCalculationInterval_MICROS = 0;  // Interval for calculating discharge success rate (is calculated from machining frequency)
 
-//  Parameter Limits
-const float MIN_ON_TIME_MICROS = 0.625f;                // Minimum on-time in microseconds
-const float MAX_ON_TIME_MICROS = 160.0f;                // Maximum on-time in microseconds
-const float MIN_OFF_TIME_MICROS = 10.625f;              // Minimum off-time in microseconds
-const float MIN_MACHINING_FREQUENCY_HZ = 5000.0f;       // Minimum machining frequency in Hz
-const float MAX_MACHINING_FREQUENCY_HZ = 20000.0f;      // Maximum machining frequency in Hz
-const float MIN_DUTY_CYCLE = 0.01f;                     // Minimum duty cycle (1%)
-const float MAX_DUTY_CYCLE = 0.15f;                     // Maximum duty cycle for pi-filter module
-const float MIN_INIT_VOLTAGE = MIN_HIGH_VOLTAGE_PHASE_VOLTS;    // Minimum initiation voltage (exclusive)
-const float MAX_INIT_VOLTAGE = MAX_HIGH_VOLTAGE_PHASE_VOLTS;    // Maximum initiation voltage in volts
-const float MAX_SAFE_INPUT_CURRENT = 7.3f;              // Maximum safe input current in amps
-
 // PMM_ISENSE Monitoring Constants
 const float ADC_TO_VOLTS = 3.3f / 4095.0f;             // Constant for converting 12-bit ADC into volts
 const float PMM_ISENSE_V_PER_AMP = 0.200f;             // 200 mV per amp for PMM current sensor
@@ -163,12 +173,12 @@ const int PMM_CALIBRATION_SAMPLES = 100;               // Number of samples to t
 const int PMM_CALIBRATION_DELAY_MS = 1;                // Delay between PMM calibration samples in milliseconds
 
 // Output Current Sensor Constants
-const float ISENSE_OUTPUT_V_PER_AMP = 0.025f;           // 25 mV per amp for output current sensor (TMCS1133C1A)
-const int ISENSE_OUTPUT_AMPS_PER_VOLT = 40;             // 40 amps per volt for output current sensor (TMCS1133C1A)
-const float OUTPUT_CURRENT_ZERO_OFFSET = 0.33f;         // Zero current offset of output current sensor (TMCS1133C1A), in volts
-const int DEFAULT_OUTPUT_CURRENT_THRESHOLD_A = 8;       // Default threshold for output current sensor (40 A)
-const int OUTPUT_CURRENT_SENSOR_CALIBRATION_SAMPLES = 100;  // Number of samples to take for output current sensor calibration
-const int OUTPUT_CURRENT_SENSOR_CALIBRATION_DELAY_MS = 1;  // Delay between output current sensor calibration samples in milliseconds
+const float ISENSE_OUTPUT_V_PER_AMP = 0.025f;                   // 25 mV per amp for output current sensor (TMCS1133C1A)
+const int ISENSE_OUTPUT_AMPS_PER_VOLT = 40;                     // 40 amps per volt for output current sensor (TMCS1133C1A)
+const float OUTPUT_CURRENT_ZERO_OFFSET = 0.33f;                 // Zero current offset of output current sensor (TMCS1133C1A), in volts
+const int DEFAULT_OUTPUT_CURRENT_THRESHOLD_A = 8;              
+const int OUTPUT_CURRENT_SENSOR_CALIBRATION_SAMPLES = 100;      // Number of samples to take for output current sensor calibration
+const int OUTPUT_CURRENT_SENSOR_CALIBRATION_DELAY_MS = 1;       // Delay between output current sensor calibration samples in milliseconds
 
 // Output Voltage Sensor Constants
 const float OUTPUT_VOLTAGE_SCALE = 0.08090972f;        // Pre-computed (3.3/4095) * 100.4 for output voltage scaling with 99.6:1 voltage divider
@@ -196,19 +206,15 @@ volatile unsigned long inrushStartTime_MS = 0;          // Time when inrush star
 volatile unsigned long serialInitStartTime_MS = 0;      // Time when serial initialization started
 volatile int peripheralManagementInterval_MS = 10;      // Interval for peripheral management in milliseconds
 volatile int inrushDelay_MS = 500;                      // Delay for inrush in milliseconds
-volatile int timeSinceLastCalculation_MICROS = 0;       // Time elapsed since last discharge success rate calculation
 
 // Discharge Control Variables
 volatile int dischargeCountTarget = 0;                  // Target count of discharges (0 for infinite, positive integer for finite)
 volatile int currentDischargeCount = 0;                 // Counter for number of discharges completed
 volatile int dischargesSinceOperationStarted = 0;       // Counter for number of discharges since operation started
 volatile double dischargeSuccessRate = 0.00f;           // Current discharge success rate
+volatile double avgDischargeSuccessRate = 0.00f;        // Running average of discharge success rate
 volatile bool requestedDischargesReached = false;       // Flag to indicate if the requested number of discharges has been reached
 volatile double newDischargeSuccessRate = 0.00f;        // New discharge success rate
-
-// Pulse Skipping Variables
-volatile bool pulseSkippingEnabled = true;              // Flag to enable pulse skipping safety feature
-volatile int dischargesPerCalculationInterval = 5;      // Number of discharges per calculation interval
 
 // Current Measurement Variables
 volatile double inputCurrentReading = 0.00f;            // Current reading from PMM_ISENSE
@@ -542,10 +548,18 @@ void handlePeripheralManagement() {
     updateDeviceStatistics();
     readEnablePort();
 
-    // If the device state is operating, set the feedback port duty cycle to the inverse of the discharge success rate
+    // If the device state is operating, set the feedback port duty cycle based on input power ratio
     if (oldDeviceState == OPERATING) {
-        // Calculate feedback duty cycle with proper precision
-        feedbackPortDutyCycle = (double)(1.00 - dischargeSuccessRate);
+        // Calculate input power in watts (current * 48V input voltage)
+        float inputPowerWatts = avgDeviceInputCurrent * 48.0f;
+        // Calculate power ratio (input power / max power setpoint)
+        float powerRatio = inputPowerWatts / MAX_INPUT_POWER_SETPOINT_WATTS;
+        // Clamp power ratio between 0 and 1.00
+        if (powerRatio < 0.00) powerRatio = 0.00;
+        if (powerRatio > 1.00) powerRatio = 1.00;
+        // Calculate feedback duty cycle as inverse of power ratio (active low PWM)
+        // If power exceeds setpoint, duty cycle becomes 0%
+        feedbackPortDutyCycle = (double)(1.00 - powerRatio);
         // Set the feedback port duty cycle
         setEDMFeedbackDutyCycle(feedbackPortDutyCycle);
     }
@@ -1147,10 +1161,13 @@ void sendTelemetry() {
         Serial.print("AVG_DISCHARGE_VOLTAGE:");
         Serial.print(avgDischargeVoltage, 2);
         Serial.println(" V");
+        Serial.print("AVG_OUTPUT_POWER:");
+        Serial.print(int(avgDischargeVoltage * avgDischargeCurrent * machiningDutyCycle * avgDischargeSuccessRate));
+        Serial.println(" W");
         Serial.print("DISCHARGES_SINCE_OPERATION_STARTED:");
         Serial.println(dischargesSinceOperationStarted);
-        Serial.print("DISCHARGE_SUCCESS_RATE:");
-        Serial.print((int)(dischargeSuccessRate * 100));
+        Serial.print("AVG_DISCHARGE_SUCCESS_RATE:");
+        Serial.print((int)(avgDischargeSuccessRate * 100));
         Serial.println("%");
         Serial.print("DISCHARGE_SUCCESS_RATE_THRESHOLD:");
         Serial.print((int)(maxDischargeSuccessRateThreshold * 100));
@@ -1437,9 +1454,6 @@ void EDMIsofrequencyMode() {
     if (newDischargeDetected) {
         // Reset the newDischargeDetected flag
         newDischargeDetected = false;
-        // Increment counters
-        dischargesSinceOperationStarted++;
-        currentDischargeCount++;
         // Calculate the average discharge current
         newDischargeCurrent = ((newDischargeCurrent_ADC - outputCurrentSensorZeroCurrentOffset) * ADC_TO_VOLTS * ISENSE_OUTPUT_AMPS_PER_VOLT);
         // Calculate the average discharge voltage
@@ -1458,35 +1472,61 @@ void EDMIsofrequencyMode() {
         // Calculate the average discharge voltage with 90/10 weighting
         avgDischargeVoltage = (0.90 * avgDischargeVoltage) + (0.10 * newDischargeVoltage);
     }
-    // Calculate the discharge success rate, but only if the setup is complete
-    if (micros() - lastDischargeSuccessRateCalculationTime > dischargeRateCalculationInterval_MICROS) {
-        // Calculate how long time has really passed since the last discharge success rate calculation
-        timeSinceLastCalculation_MICROS = micros() - lastDischargeSuccessRateCalculationTime;
+    // Calculate the discharge success rate, after the calculation interval has passed, or if currentDischargeCount is greater than or equal to the dischargesPerCalculationInterval
+    if (micros() - lastDischargeSuccessRateCalculationTime > dischargeRateCalculationInterval_MICROS || currentDischargeCount >= dischargesPerCalculationInterval) {
         // Calculate the new discharge success rate as the ratio of the number of discharges detected to the number of discharges requested
         dischargeSuccessRate = (double)(currentDischargeCount) / (double)(dischargesPerCalculationInterval);
-        // Clamp the discharge success rate to a minimum of 0 and a maximum of 1
-        if (dischargeSuccessRate < 0.00) {
-            dischargeSuccessRate = 0.00;
+        
+        //Serial print dischargeSuccessRate
+        //Serial.print("dischargeSuccessRate: ");
+        //Serial.println(dischargeSuccessRate);
+        //Serial.print("currentDischargeCount: ");
+        //Serial.println(currentDischargeCount);
+        //Serial.print("dischargeRateCalculationInterval_MICROS: ");
+        //Serial.println(dischargeRateCalculationInterval_MICROS);
+
+        // Calculate the average discharge success rate with 99/1 weighting. It is calculated here before it could be possibly affected by the pulse skipping.
+        avgDischargeSuccessRate = (0.99 * avgDischargeSuccessRate) + (0.01 * dischargeSuccessRate); 
+
+        //Serial print the average discharge success rate
+        //Serial.print("Average discharge success rate: ");
+        //Serial.println(avgDischargeSuccessRate);
+        
+        // If the discharge succcess rate is greater than or equal to the maximum discharge success rate threshold, and allowDischargeSuccessRatePulseSkipping is true
+        if (dischargeSuccessRate >= maxDischargeSuccessRateThreshold && allowDischargeSuccessRatePulseSkipping) {
+            // Disable the output stage
+            disableOutputStage();
+            // Using millis to get the current time
+            unsigned long startTime = millis();
+            // Serial print the reason why pulse skipping is happening
+            Serial.println("Pulse skipping: discharge success rate threshold exceeded");
+            while (millis() - startTime < 250) {
+                // Do nothing
+            }
+            // Set the discharge success rate to zero to reset it after the pulse skipping is complete
+            dischargeSuccessRate = 0;
+            // Serial print that pulse skipping has been completed
+            Serial.println("Pulse skipping complete");
         }
-        else if (dischargeSuccessRate > 1.00) {
-            dischargeSuccessRate = 1.00;
+        // If the average input power is greater than the maximum input power setpoint, and allowPowerSetpointPulseSkipping is true
+        if ((avgDeviceInputCurrent * 48) > MAX_INPUT_POWER_SETPOINT_WATTS && allowPowerSetpointPulseSkipping) {
+            // Disable the output stage
+            disableOutputStage();
+            // Using millis to get the current time
+            unsigned long startTime = millis();
+            // Serial print the reason why pulse skipping is happening
+            Serial.println("Pulse skipping: power setpoint exceeded");
+            while (millis() - startTime < 10) {
+                // Do nothing
+            }
+            // Serial print that pulse skipping has been completed
+            Serial.println("Pulse skipping complete");
         }
+
         // Reset the current discharge count
         currentDischargeCount = 0;
         // Update the last discharge success rate calculation time
         lastDischargeSuccessRateCalculationTime = micros();
-        // If the discharge succcess rate is greater than the maximum discharge success rate threshold, and allowPulseSkipping is true,
-        if (dischargeSuccessRate > maxDischargeSuccessRateThreshold && allowPulseSkipping) {
-            // Disable the output stage
-            disableOutputStage();
-            // Using millis, wait for 50 ms
-            unsigned long startTime = millis();
-            while (millis() - startTime < 50) {
-                // Do nothing
-            }
-            // Set the discharge success rate to zero
-            dischargeSuccessRate = 0;
-        }
     }
     // If the number of completed discharges has reached the requested number, and the requested number is not 0 (infinite)
     if (dischargesSinceOperationStarted >= dischargeCountTarget && dischargeCountTarget != 0) {
@@ -1520,11 +1560,13 @@ void EDMIsofrequencyMode() {
 }
 void outputOvercurrentHandler_EDMIsofrequencyMode() {
     // Function to handle the output overcurrent handler for the EDM isofrequency mode of the device
-
     // Read the ADC value for the output current sensor
     newDischargeCurrent_ADC = analogRead(OUTPUT_ISENSE);
     // Read the ADC value for the output voltage sensor
     newDischargeVoltage_ADC = analogRead(OUTPUT_VSENSE);
+    // Increment counters
+    dischargesSinceOperationStarted++;
+    currentDischargeCount++;
     // Set the newDischargeDetected flag to true, so that during the EDMIsofrequencyMode() function the discharge count is incremented
     newDischargeDetected = true;
     // Clear the GPIO interrupt status using gpio_acknowledge_irq()
@@ -1576,6 +1618,9 @@ void setup() {
     calibrateOutputCurrentSensor();
     // Initialize Serial communication
     setupSerialCommunication();
+    // Serial print the software version
+    Serial.print("Software Version: ");
+    Serial.println(SOFTWARE_VERSION);
     // Setup interrupts
     setupInterrupts();  
     // Setup I2C
