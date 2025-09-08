@@ -41,9 +41,9 @@ A high-efficiency power supply unit designed for Electrical Discharge Machining 
 1. Optimized for wire EDM applications
 2. Maximum input power: 300W with high efficiency topology
 3. Adjustable output parameters:
-   - Machining Duty Cycle: 1% to 15%
-   - Spark Initiation Voltage: 64V to 150V
-   - Machining Frequency: 5kHz to 20kHz
+   - Machining Duty Cycle: 1% to 10%
+   - Spark Initiation Voltage: 64V to 100V
+   - Machining Frequency: 5kHz to 10kHz
 4. USB serial interface for configuration and telemetry
 5. PWM feedback output for external feedrate control
 6. Edge detection capability for workpiece probing
@@ -77,13 +77,13 @@ The Powercore V3 provides precision control of machining parameters including du
 | Average Input Power | 10 | 300 | W |
 | Input Voltage | 47.8 | 48.2 | V |
 | Input Current | 0.625 | 6.25 | A |
-| Machining Duty Cycle | 1 | 15 | % |
-| Spark Initiation Voltage | 64 | 150 | V |
-| Machining Frequency | 5,000 | 20,000 | Hz |
+| Machining Duty Cycle | 1 | 10 | % |
+| Spark Initiation Voltage | 64 | 100 | V |
+| Machining Frequency | 5,000 | 10,000 | Hz |
 | Machining Current (1) | 40 | 70 | A |
 | PWM Feedback Duty Cycle | 0 | 100 | % |
 | PWM Feedback Voltage | 0 | 3.3 | V |
-| PWM Feedback Frequency  | — | 10,000 | Hz |
+| PWM Feedback Frequency  | — | 1,000 | Hz |
 | PWM Feedback Output Impedance | 1,010 | 9,990 | Ω |
 | Enable Input Voltage | 3.0 | 3.5 | V |
 | Enable Input Impedance | 1,010 | 9,990 | Ω |
@@ -119,7 +119,7 @@ Output connects via 2-position lever-action Wago connector accepting 16 AWG stra
 4-position JST-XH header provides communication with external controllers. Exposes 3.3V and GND from RP2040 microcontroller with current-limiting resistors.
 
 - **Enable Input**: Output is enabled when this input is connected to 3.3V or external 3.3V supply with common ground. 10kΩ pull-down resistor to GND.
-- **Feedback Output**: Reports discharge rate via active-low PWM signal. 100% duty cycle indicates open circuit; 0% indicates short circuit or power supply fault. Maintain 20-80% duty cycle during machining by adjusting feedrate. 10kΩ pull-down resistor to GND. External low-pass filter can convert to analog feedback.
+- **Feedback Output**: Reports EDM power consumption via active-low PWM signal. 100% duty cycle indicates no power consumption from machining; 0% indicates short circuit. Maintain 10-90% duty cycle during machining by adjusting feedrate. 10kΩ pull-down resistor to GND. External low-pass filter can convert to analog feedback.
 
 ### USB-MICRO SERIAL INTERFACE
 
@@ -186,9 +186,9 @@ Fixed-frequency discharge mode. Default mode or activated via 'EDM_ISOFREQUENCY_
 
 | PARAMETER | Min | Default | Max | Unit |
 | --- | --- | --- | --- | --- |
-| Machining Duty Cycle | 1 | 10 | 15 | % |
-| Machining Frequency | 5,000 | 10,000 | 20,000 | Hz |
-| Spark Initiation Voltage | 64 | 80 | 150 | V |
+| Machining Duty Cycle | 1 | 10 | 10 | % |
+| Machining Frequency | 5,000 | 1,000 | 10,000 | Hz |
+| Spark Initiation Voltage | 64 | 80 | 100 | V |
 
 ### EDGE-DETECTION MODE
 
